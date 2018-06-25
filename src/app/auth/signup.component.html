@@ -1,9 +1,23 @@
-<h1>Sign Up</h1>
-<a [routerLink]="['/login']">Have an account?</a>
-<form>
-  <input type="email" name="Email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
-  <input type="password" name="password" placeholder="Re-type Password">
-  <input type="text" name="username" placeholder="Username">
-  <button type="submit">Submit</button>
-</form>
+
+
+<div class = "signupPage">
+    <div class="wrapper">
+    
+    <div class="header">
+      <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
+      <a [routerLink]="['/login']" id="needAcc">Already have an account?</a>
+    </div>
+    <form #form='ngForm'>
+      <input class="inp" type="email" name="Email" placeholder="Email" ngModel>
+      <input class="inp" type="text" name="userName" placeholder="User Name" ngModel>
+      <input class="inp" type="password" name="password" placeholder="Password" ngModel>
+      <input class="inp" type="password" name = "confirmPassword" placeholder="Confirm Password" ngModel>
+      <div class="rad">
+        <input type="radio" name="roles" value="student" ngModel>Student
+        <input type="radio" name="roles" value="mentor" ngModel>Mentor
+      </div>
+      <input class="inp" type="text" name="url" placeholder="LinkedIn url" *ngIf="form.value.roles=='mentor'">
+      <button type="submit" [routerLink]="['/dashboard']" (click)="log()">Sign Up</button>
+    </form>
+  </div>
+  </div>
