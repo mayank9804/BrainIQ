@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<a [routerLink]="['/signup']">Need an account?</a>
+<form>
+  <input type="email" name="Email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <button type="submit" [routerLink]="['/dashboard']" (click)="log()">Submit</button>
+</form>

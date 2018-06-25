@@ -1,0 +1,33 @@
+<div class="searchPortal" *ngIf='searchactivated'>
+  <span class="btn-cross" (click)="activateSearch(false)">X</span>
+  <div class="searchBox">
+    <input type="text" class="searchbar" autofocus>
+  </div>
+  
+  
+</div>
+<div class="navbar">
+    <nav class="navbar-left">
+      <input type="text" (click)="activateSearch(true);">
+    </nav>
+    <nav class="navbar-right">
+      <div class="wrapper">
+        <a [routerLink]="['/dashboard/settings']" >
+          <div class="item">User Name</div>
+        </a>
+        <div class="item box">
+          <i class="fa fa-circle"></i>
+          <div class="drop-down-item">
+            <ul>
+              <li><a [routerLink]="['/dashboard/privacy-policy']">Privacy Policy</a></li>
+              <li><a [routerLink]="['/dashboard/terms-of-service']">Terms of use</a></li>
+              <li><a [routerLink]="['/dashboard/contact-us']">Contact us</a></li>
+              <hr style="margin-top:10px;">
+              <li id="logout"><a [routerLink]="['/']">Logout</a></li>
+            </ul>
+          </div>
+        </div> 
+      </div>
+    </nav>
+  
+</div>

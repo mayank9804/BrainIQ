@@ -1,0 +1,28 @@
+<div class="sidebar">
+  <div class="root-sidebar" [@sideBar]='state' (mouseenter) ="sidebar()" (mouseleave) ="sidebar()">
+    <div class="root-item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">BrainIQ</p>
+    </div>
+    <div class="item">
+      <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+      <p [ngClass]="{'active':state=='hovered'}">Home</p>
+    </div>
+    <div class="item">
+        <i class="fa fa-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">Set Quiz</p>
+    </div>
+    <div class="item">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <p [ngClass]="{'active':state=='hovered'}">My Students</p>
+    </div>
+    <div class="item">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <p [ngClass]="{'active':state=='hovered'}">My Courses</p>
+    </div>
+    <div class="item">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <p [ngClass]="{'active':state=='hovered'}">New Requests</p>
+    </div>
+  </div>
+</div>
