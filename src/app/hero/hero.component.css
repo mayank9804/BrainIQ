@@ -1,0 +1,122 @@
+/* Navbar Started */
+.navbar{
+    padding: 10px;
+    background-color: transparent;
+    transition: 0.3s ease-in-out;
+    font-family: 'Josefin Sans', sans-serif;
+    
+}
+.navbar-header>.logo{
+    background: linear-gradient(to left,#EA1879,#EF5133);
+    padding: 10px;
+    border-radius:3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border:none;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar .navbar-nav>li>a{
+    font-size: 18px;
+    color: #FFF;    
+}
+
+.navbar .navbar-left>li{
+    border: 1px solid aliceblue;
+    outline: none;
+    border-radius:5px;
+    margin-left:10%;
+    padding: 12px;
+}
+.navbar .navbar-left>li>a{
+    display: inline;
+}
+
+.navbar .navbar-collapse{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .navbar-change>li>a{
+    color: #FFF;
+}
+.navbar-change{
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+    background-color: #222222;
+    box-shadow: 2px 2px 3px #1e1e1e;
+}
+.navbar-change .navbar-right>li.loginbtn{
+    background-color: #EF5133;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    font-size: 20px;
+}
+/* Navbar completed */
+
+
+/* Hero image started */
+.hero-image{
+    background-image: url('../../assets/img/background-hero-dark.jpg');
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    z-index:-10;
+}
+.hero-image::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    /* background: linear-gradient(to right,#EA1879,#EF5133); */
+    background-color: rgba(2, 15, 15, 0.562);
+    filter: blur(5px); 
+}
+.image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.hero-image .hero-text{
+    max-width: 100%;
+    text-align: center;
+    color: aliceblue;
+    z-index:10;
+    font-family: 'Asap', sans-serif;
+}
+.hero-image .hero-text h1{
+    font-size:48px;
+    font-weight: 600px;
+    line-height: 1em;
+}
+.hero-image .hero-text>button{
+    background: linear-gradient(to left,#EA1879,#EF5133);
+    padding: 10px;
+    border-radius:3px;
+    border:none;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top: 3%;
+}
+.hero-image .hero-text>button:hover{
+    cursor: pointer;
+    background: linear-gradient(to right,#EA1879,#EF5133);
+    
+}
+
+/* Hero Image ends */

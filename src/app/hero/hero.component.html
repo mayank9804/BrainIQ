@@ -1,11 +1,65 @@
-<h1>Hey I am hero of this web page! See me sometimes later. You will be amazed</h1>
+<!-- Fonts -->
+<!-- font-family: 'Josefin Sans', sans-serif; Content-->
+<!-- font-family: 'Asap', sans-serif; Headings-->
+
+
+<!-- Navbar Starts -->
+<nav class="navbar navbar-fixed-top" [ngClass]="{'navbar-change':navChanger}" >
+    <div class="container navbar-fluid ">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button class="logo">LOGO</button>
+            
+        </div>
+                  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">Categories</a><i class="fa fa-angle-down" style="color:white;"></i></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="loginbtn"><a [routerLink]="['/login']">Login</a></li>
+                <li><a href="#" class="signup" [routerLink]="['/signup']">Signup</a></li>  
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- Navbar Ends -->
+
+
+<!-- Hero Image Starts -->
+<section class="hero-image">
+    <div class="container image-container">
+        <div class="hero-text">
+            <h1>Know? Why don't you show?</h1>
+            <!-- <a [routerLink]="['/login']">Login</a> -->
+            <!-- <p>Explore more!</p> -->
+            <button>Explore More</button>
+            
+        </div>
+    </div>
+</section>
+<!-- Hero Image Ends -->
 
 
 
-<p>You dont need anything to login! LOl</p>
-<a [routerLink]="['/login']">Login</a>
-
-
-<header>
-    
-</header>
+<section class="content">
+    <div class="container-fluid">
+        <div class="categories">
+            <div class="row">
+                <div class="col-xs-4 ">
+                    <h2>Hello</h2>
+                </div>
+                <div class="col-xs-8">
+                    <h2>World</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

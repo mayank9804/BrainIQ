@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreService } from './core.service';
+import {  WINDOW_PROVIDERS } from './window.service';
 
 @NgModule({
   imports: [
@@ -8,7 +9,7 @@ import { CoreService } from './core.service';
   ],
   declarations: [],
   providers:[
-    CoreService
+    CoreService,WINDOW_PROVIDERS
   ]
 })
 export class CoreModule { }
