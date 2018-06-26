@@ -9,13 +9,32 @@ import {WINDOW} from '../core/window.service';
 })
 export class HeroComponent implements OnInit {
   navChanger:boolean = false;
+  studentHover:boolean = false;
+  teacherHovered:boolean = false;
   constructor( @Inject(DOCUMENT) private document: Document,@Inject(WINDOW) private window: Window) { }
 
   ngOnInit() {
   }
 
 
+  rolesHovered(event){
+    console.log("hello "+event.target.className);
+    console.log(this.studentHover+' '+this.teacherHovered);
+    if(event.target.className.toLocaleLowerCase().includes("teacher")){
+      this.teacherHovered=true;
+      this.studentHover=false;
+    }
+    else if(event.target.className.toLocaleLowerCase().includes("student")){
+      this.teacherHovered=false;
+      this.studentHover=true;
+    }
 
+  }
+
+  reset(){
+    this.teacherHovered=false;
+      this.studentHover=false;
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
