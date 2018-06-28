@@ -1,7 +1,57 @@
-
-.header{
+.profile{
     text-align: center;
 }
-p{
-    text-align: center;
+.profile *{
+    font-family: 'Open Sans',sans-serif;
+    font-size: 20px;
+}
+.profile h2{
+    font-family: 'Asap', sans-serif;
+    font-size:38px;
+}
+.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.profile form {
+    text-align: left;
+    width: 60%;
+    margin: 0 auto;
+}
+.profile form label{
+    font-size: 16px;
+    display: block;
+    margin-top:2%;
+}
+.profile form input{
+    width:80%;
+    color: #181818;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+.profile .form-settings{
+    margin-top:5%;
+}
+.profile form button{
+    display: inline;
+    background: linear-gradient(to left,#EA1879,#EF5133);;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 3px;
+    margin-left: 2%;
+}
+.profile .seperator{
+    margin-top:10%;
+}
+.profile form.passwordForm input{
+    width: 100%;
+    display: block;
+}
+.profile form.passwordForm button{
+    display: block;
+    margin: 2% auto;
 }

@@ -5,22 +5,19 @@
     right:0;
     height: 100%;
     width: 100%;
-    background-color: rgba(24, 24, 24,0.9);
+    background-color: #181818e8;
     z-index: 1000;
 }
 .searchBox{
     max-width: 80%;
     margin:5% auto;
+    position: relative;
 }
-.searchPortal>.btn-cross{
+.searchPortal .btn-cross{
     position: absolute;
-    right: 0;
-    left: 90%;
-    text-align: end;
+    right: 10px;
     font-size: 40px;
-    top:60px;
-    height: 50px;
-    width: 80px;
+    top:20px;
     color: aliceblue;
 }
 .btn-cross:hover{
@@ -35,7 +32,7 @@
     font-size: 100px;
     background-color: transparent;
     border: none;
-    
+    border-bottom: 1px solid azure;
 }
 .navbar{
    position: fixed;
@@ -45,39 +42,52 @@
    width: 100%;
    border-right: 1px solid #181818;
    z-index: 100;
-   background-color: #222;
+   background-color: #222222;
    color: #aaa;
    height: 60px;
    display: flex;
-   justify-content: space-between;
-   -ms-flex-align: center;
    align-items: center;
+}
+.navbar *:not(i) {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:20px;
 }
 
 .navbar .navbar-left{
-    display: block;
     position: relative;
     margin-left: 12px;
-    height: 36px;
     width: 70%;
 }
 
 .navbar-left>input{
+    position: relative;
     display: block;
     width: 50%;
     margin: 0 auto;
+    margin-left: 60px;
     padding: 10px;
+    padding-left: 50px;
+    height: 80%;
     background-color: #363636;
     border: none;
     outline: none;
     color: aliceblue;
     border-radius: 3px;
 }
-
+.navbar-left>i{
+    position: absolute;
+    color: #aaa;
+    bottom: 6px;
+    left: 68px;
+    font-size: 1.5em;
+}
 .navbar .navbar-right{
-    display: block;
+    width: 30%;
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .navbar-right .wrapper{
@@ -115,7 +125,7 @@
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding-bottom: 10px;
+    
 }
 
 .box .drop-down-item ul{
@@ -123,8 +133,9 @@
 }
 .box .drop-down-item ul li{
     margin-top:10px;
-    
-    padding: 0px 30px;
+    padding: 0px 20px;
+    font-size: 16px;
+    color: #181818;
 }
 .box .drop-down-item ul li a{
     text-decoration: none;
@@ -134,7 +145,7 @@
     display: block;
 }
 .box #logout{
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     color: indianred;
     text-transform: uppercase;
 }

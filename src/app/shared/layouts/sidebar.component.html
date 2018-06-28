@@ -4,25 +4,45 @@
         <i class="fa fa-home fa-2x" aria-hidden="true"></i>
         <p [ngClass]="{'active':state=='hovered'}">BrainIQ</p>
     </div>
-    <div class="item">
-      <i class="fa fa-home fa-2x" aria-hidden="true"></i>
-      <p [ngClass]="{'active':state=='hovered'}">Home</p>
-    </div>
-    <div class="item">
+    <div *ngIf='isStudent();'>
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/dashboard']">Home</a></p>
+      </div>
+      <div class="item">
         <i class="fa fa-circle fa-2x" aria-hidden="true"></i>
-        <p [ngClass]="{'active':state=='hovered'}">Set Quiz</p>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/analytics']">Analytics</a></p>
+      </div>
+      <div class="item">
+        <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/mentors']">My Mentors</a></p>
+      </div>
+      <div class="item">
+        <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/quiz-hub']">Quizzes</a></p>
+      </div>
     </div>
-    <div class="item">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <p [ngClass]="{'active':state=='hovered'}">My Students</p>
-    </div>
-    <div class="item">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <p [ngClass]="{'active':state=='hovered'}">My Courses</p>
-    </div>
-    <div class="item">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <p [ngClass]="{'active':state=='hovered'}">New Requests</p>
+    <div *ngIf='isMentor();'>
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/dashboard']">Home</a></p>
+      </div>
+      <div class="item">
+          <i class="fa fa-circle fa-2x" aria-hidden="true"></i>
+          <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/set-quiz']">Set Quiz</a></p>
+      </div>
+      <div class="item">
+        <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/my-students']">My Students</a></p>
+      </div>
+      <div class="item">
+        <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/my-school']">My Courses</a></p>
+      </div>
+      <div class="item">
+        <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/join-requests']">New Requests</a></p>
+      </div>
     </div>
   </div>
 </div>

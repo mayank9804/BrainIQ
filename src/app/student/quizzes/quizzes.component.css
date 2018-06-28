@@ -1,0 +1,32 @@
+.quizzes *{
+    text-align: center;
+}
+
+.quiz{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:3%;
+    transition: 0.3s ease-in;
+    transform: scale(0.9);
+}
+.quiz .take-test{
+    display: block;
+    margin: 5px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: linear-gradient(to left,#EA1879,#EF5133);
+}
+.quiz:hover{
+    cursor: pointer;
+    box-shadow:none;
+}
+.quizzes a{
+    text-decoration: none;
+    color: mediumturquoise;
+}
+.quizzes .quizRow{
+    margin-top:5%;
+}
