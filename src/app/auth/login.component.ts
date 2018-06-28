@@ -13,9 +13,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
   log(){
-    console.log(this._coreService.x);
-    // console.log(this.coreservice.x);
-    this._route.navigate(['/dashboard']);
-  }
+    this._coreService.authenticate();
+    if(this._coreService.isAuthenticated){
+      if(this._coreService.isStudent){
+        this._route.navigate(["/student/username"]);
+      }
+      else if(this._coreService.isMentor){
+        this._route.navigate(["/mentor/username"]);
+      }
+      else if(this._coreService.isAdmin){
+        //waiting
+      }
+    }
+  } 
 }

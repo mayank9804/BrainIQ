@@ -37,8 +37,13 @@ form input{
     margin-top:30px;
     border-radius:5px;  
     border:0.5px solid #EA1879;
+    transition: 0.3s ease-in;
     outline: none;
     
+}
+form input.errorInput{
+    border:0.5px solid red;
+    transition: 0.3s ease-out;
 }
 .loginPage button{
     display: block;
@@ -51,6 +56,12 @@ form input{
     border-radius: 3px;
     color: white;
     font-size: 15px;
+    transition: 0.1s ease-in;
+}
+button.disableButton{
+    opacity: 0.8;
+    cursor: not-allowed;
+    transition: 0.1s ease-out;
 }
 .links{
     margin-top:5%;

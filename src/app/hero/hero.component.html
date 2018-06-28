@@ -111,7 +111,7 @@
         <div class="details">
             <div class="row">
                 <div class="roles-sections student" [ngClass]="{'col-xs-5':studentHover!=true && teacherHovered!=true,'col-xs-9':studentHover==true && teacherHovered==false,'col-xs-2':studentHover==false && teacherHovered==true}" (mouseover) ="rolesHovered($event)"
-                (mouseout)="reset();">
+                >
                     <div class="detail-bar">
                         <div class="sample"></div>
                         <h2>Student</h2>
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="roles-sections teacher" [ngClass]="{'col-xs-5 col-xs-offset-2':studentHover!=true && teacherHovered!=true,'col-xs-2':studentHover==true && teacherHovered==false,'col-xs-9':studentHover!=true && teacherHovered==true, 'col-xs-offset-1':(studentHover==true && teacherHovered==false )|| (studentHover!=true && teacherHovered==true)}" 
-                (mouseover) ="rolesHovered($event)" (mouseout)="reset();">
+                (mouseover) ="rolesHovered($event)">
                     <div class="detail-bar">
                         <div class="sample"></div>
                         <h2>Teacher</h2>
@@ -157,9 +157,27 @@
             </div>
         </div>
         <!-- Detail ends -->
+
+        
+
     </div>
 </section>
 <!-- Content ends -->
+
+<!-- What is Portal starts-->
+<div class="portal-what">
+    <div class="row">
+        <div class="col-xs-6 left">
+            <h2>What is our <span class="capitalize">portal</span></h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab non tempora hic recusandae perspiciatis nam consequatur et eveniet voluptatibus quisquam sed ipsa autem voluptatum harum aperiam quod, est suscipit debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odit aliquid amet, laborum doloremque temporibus eos, eius hic dicta iure tenetur rerum qui sapiente similique adipisci quaerat ut minima ea. </p>
+        </div>
+        <div class="col-xs-6 right">
+            <img src="../../assets/img/monitor.png" class="monitor" alt="">
+        </div>
+    </div>            
+</div>
+<!-- What is Portal ends -->
+
 
 <!-- Footer Starts -->
 <div class="downHandler">
@@ -176,13 +194,16 @@
                 </ul>
             </div>
             <div class="col-xs-4 bars">
+                <p>Contact Us</p>
                 <ul class="list list-1">
-                    <li></li>
+                    <li>xyz@gmail.com</li>
+                    <li>+91-9814670363</li>
                 </ul>
             </div>
             <div class="col-xs-4 bars">
+                <p>Reach us</p>
                 <ul class="list list-1">
-                    <li></li>
+                    <li>Phagwara, 144401, Punjab</li>
                 </ul>
             </div>
         </div>

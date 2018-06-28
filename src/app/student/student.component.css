@@ -1,0 +1,43 @@
+.content-box{
+    margin-top:60px;
+    margin-left:50px;
+    height: 100%;
+}
+.studentBackground{
+    background-color: hsl(0, 0%, 21%);
+}
+.studentBackground *{
+    font-family: 'Open Sans', sans-serif;
+    font-size:20px;
+    color: #FFF;
+}
+.studentBackground{
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+    z-index: 5;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgb(24, 24, 24) 500px), linear-gradient(to left, rgba(0, 0, 0, 0.1) 80%, rgb(24, 24, 24) 100%), url(../../assets/img/student.jpeg);
+    min-height: 1000px;
+}
+
+.studentBackground .heading{
+    max-width: 50%;
+    padding: 30px;
+}
+.studentBackground >.heading>h1{
+    color: white;
+    font-family: 'Asap', sans-serif;
+    font-size:38px; 
+    
+    /* background-color: aqua; */
+}
+.studentBackground >.heading> p{
+    color: white;
+    font-family: 'Asap', sans-serif;
+    font-size:25px;
+}
+.statusContainer{
+    max-width: 80%;
+    margin: 5% auto;
+}

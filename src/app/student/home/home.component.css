@@ -1,0 +1,22 @@
+
+.post{
+    width: 100%;
+    background-color: #363636;
+    padding: 20px;
+    margin-top:5%;
+    border-radius: 5px;
+}
+.post a{
+    font-size:14px;
+    color: mediumturquoise;
+    cursor: pointer;
+}
+.post a.date{
+    margin-left:2%;
+}
+.post h2{
+    font-size: 30px;
+}
+.post p{
+    font-size: 20px;
+}

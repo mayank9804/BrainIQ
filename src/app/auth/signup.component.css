@@ -7,7 +7,7 @@
     justify-content: center;
 }
 .signupPage *{
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
 }
 .signupPage .wrapper{
     width:25%;
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Open Sans', sans-serif;
 }
 .signupPage .header a{
     display: block;
@@ -38,15 +39,39 @@ form input.inp{
     border-radius:5px;  
     border:0.5px solid #EA1879;
     outline: none;
- 
-    
+    font-family: 'Open Sans', sans-serif;
 }
+
 form .rad{
     text-align: center;
-    margin-top:3%;  
+    margin-top:3%;
+    font-family: 'Open Sans', sans-serif;  
 }
+
 form input[type="radio"]{
     margin-left:5%;
+}
+
+form input.errorInput{
+    border:0.5px solid red;
+    transition: 0.3s ease-out;
+}
+form .username-box{
+    position: relative;
+}
+form i.fa{
+    display: none;
+}
+form i.fa.visible{
+    display: block;
+    position: absolute;
+    top:18px;
+    right: 10px;
+}
+button.disableButton{
+    opacity: 0.8;
+    cursor: not-allowed;
+    transition: 0.1s ease-out;
 }
 .signupPage button{
     display: block;
@@ -59,4 +84,6 @@ form input[type="radio"]{
     border-radius: 3px;
     color: white;
     font-size: 15px;
+    transition: 0.1s ease-out;
+    font-family: 'Open Sans', sans-serif;
 }

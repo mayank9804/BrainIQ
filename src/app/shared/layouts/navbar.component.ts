@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoreService } from '../../core/core.service';
 
 @Component({
   selector: 'shared-navbar',
@@ -8,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   searchactivated:boolean=false;
-  constructor() { }
+  constructor(private _coreService:CoreService) { }
 
   ngOnInit() {
   }
 
   activateSearch(arg:boolean):void{
     this.searchactivated =arg;
+  }
+  logout():void{
+    this._coreService.reset();
+  }
+  isStudent(){
+    return this._coreService.isStudent;
+  }
+  isMentor(){
+    return this._coreService.isMentor;
   }
 }

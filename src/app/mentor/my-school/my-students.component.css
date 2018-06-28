@@ -1,0 +1,25 @@
+.myStudents *{
+    text-align: center;
+}
+.student-box{
+    background-color: #363636;
+    box-shadow: 5px 0px 20px #222222;
+    border-radius: 10px;
+    padding:10px;
+    transition: 0.3s ease-in;
+    transform: scale(0.9);
+}
+
+.student-box:hover{
+    cursor: pointer;
+    box-shadow:none;
+    transform: scale(1);
+    transition: 0.3s ease-out;
+}
+.student-box a{
+    text-decoration: none;
+    color: mediumturquoise;
+}
+.myStudents .studentContainer{
+    margin-top:5%;
+}

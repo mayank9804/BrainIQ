@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,state,transition,keyframes,style,animate} from "@angular/animations";
+import { CoreService } from '../../core/core.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -33,12 +34,18 @@ import { trigger,state,transition,keyframes,style,animate} from "@angular/animat
 })
 export class SidebarComponent implements OnInit {
   state:string= 'not';
-  constructor() { }
+  constructor(private coreService :CoreService) { }
 
   ngOnInit() {
   }
   sidebar():void{
     this.state = (this.state == 'hovered')?'not':'hovered';
     console.log(this.state);
+  }
+  isStudent(){
+    return this.coreService.isStudent;
+  }
+  isMentor(){
+    return this.coreService.isMentor;
   }
 }

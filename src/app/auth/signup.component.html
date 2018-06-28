@@ -8,16 +8,32 @@
       <a [routerLink]="['/login']" id="needAcc">Already have an account?</a>
     </div>
     <form #form='ngForm'>
-      <input class="inp" type="email" name="Email" placeholder="Email" ngModel>
-      <input class="inp" type="text" name="userName" placeholder="User Name" ngModel>
-      <input class="inp" type="password" name="password" placeholder="Password" ngModel>
-      <input class="inp" type="password" name = "confirmPassword" placeholder="Confirm Password" ngModel>
+      
+      <input #email='ngModel' ngModel required class="inp" type="email" name="Email" placeholder="Email" ngModel 
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [ngClass]="{'errorInput':email.invalid && email.touched}">
+
+      <input #firstname='ngModel' ngModel required type="text" class="inp" name="firstname" 
+      placeholder="First Name" [ngClass]="{'errorInput':firstname.invalid && firstname.touched}">
+      <input #lastname='ngModel' ngModel required type="text" class="inp" name="lastname" 
+      placeholder="Last Name" [ngClass]="{'errorInput':lastname.invalid && lastname.touched}">
+
+      <div class="username-box">
+        <input #name='ngModel' ngModel required class="inp" type="text" name="userName" 
+        placeholder="User Name" [ngClass]="{'errorInput':name.invalid && name.touched}" [(ngModel)]="username">
+        <i class="fa fa-check" [ngClass]="{'visible':isAvailable()}"></i>
+      </div>
+      <input #password='ngModel' ngModel required class="inp" type="password" name="password" placeholder="Password" 
+      ngModel [ngClass]="{'errorInput':password.invalid && password.touched}">
+
+      <input #rePassword='ngModel' ngModel required class="inp" type="password" name = "confirmPassword" 
+      placeholder="Confirm Password" ngModel 
+      [ngClass]="{'errorInput':rePassword.invalid && rePassword.touched,'errorInput':rePassword.value!=password.value && rePassword.touched}">
       <div class="rad">
         <input type="radio" name="roles" value="student" ngModel>Student
         <input type="radio" name="roles" value="mentor" ngModel>Mentor
       </div>
-      <input class="inp" type="text" name="url" placeholder="LinkedIn url" *ngIf="form.value.roles=='mentor'">
-      <button type="submit" [routerLink]="['/dashboard']" (click)="log()">Sign Up</button>
+      <input #conditionalUrl='ngModel' ngModel required class="inp" type="text" name="url" placeholder="LinkedIn url" *ngIf="form.value.roles=='mentor'">
+      <button type="submit" [routerLink]="['/dashboard']" (click)="log()" [disabled]="form.invalid" [ngClass]="{'disableButton':form.invalid}">Sign Up</button>
     </form>
   </div>
   </div>

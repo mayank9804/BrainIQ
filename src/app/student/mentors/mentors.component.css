@@ -1,0 +1,27 @@
+.myMentors *{
+    text-align: center;
+}
+.myMentors .tag-line{
+    font-family: 'Asap',sans-serif;
+}
+.mentor-box{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:10px;
+    transition: 0.3s ease-in;
+    transform: scale(0.9);
+    padding-bottom: 5%;
+}
+
+.mentor-box:hover{
+    cursor: pointer;
+    box-shadow:none;
+}
+.mentor-box a{
+    text-decoration: none;
+    color: mediumturquoise;
+}
+.myMentors .mentorContainer{
+    margin-top:5%;
+}
