@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroComponent } from './hero/hero.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { CoreModule } from './core/core.module';
     HeroComponent
   ],
   imports: [
-    BrowserModule,CoreModule,AuthModule,AppRoutingModule
+    BrowserModule,CoreModule,AuthModule,AppRoutingModule,AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
