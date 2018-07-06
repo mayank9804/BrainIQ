@@ -1,46 +1,30 @@
 <div class="row">
     <div class="col-xs-12">
         <form class="post-form">
-            <textarea name="postStatus" id="post-status" autofocus
-            placeholder="Write an update" ></textarea>
-            <button type="submit" class="submit-post">Submit</button>
+            <textarea #postbox name="postStatus" id="post-status" autofocus placeholder="Write an update" [(ngModel)]='postContent.content'></textarea>
+            <button type="submit" class="submit-post" [disabled]="postContent.content==undefined" (click)='postStatus()'>Submit</button>
+
         </form>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12 post">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolor animi a repellendus sed natus, iusto amet soluta sunt! Exercitationem nam aut nobis, corrupti saepe praesentium aliquid explicabo beatae voluptas.</p>
-        <a href="">5 Likes</a>
-    </div>
-    <div class="col-xs-12 post">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolor animi a repellendus sed natus, iusto amet soluta sunt! Exercitationem nam aut nobis, corrupti saepe praesentium aliquid explicabo beatae voluptas.</p>
-        <a href="">5 Likes</a>
-    </div>
-    <div class="col-xs-12 post">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolor animi a repellendus sed natus, iusto amet soluta sunt! Exercitationem nam aut nobis, corrupti saepe praesentium aliquid explicabo beatae voluptas.</p>
-        <a href="">5 Likes</a>
-    </div>
-    <div class="col-xs-12 post">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolor animi a repellendus sed natus, iusto amet soluta sunt! Exercitationem nam aut nobis, corrupti saepe praesentium aliquid explicabo beatae voluptas.</p>
-        <a href="">5 Likes</a>
-    </div>
-    <div class="col-xs-12 post">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolor animi a repellendus sed natus, iusto amet soluta sunt! Exercitationem nam aut nobis, corrupti saepe praesentium aliquid explicabo beatae voluptas.</p>
-        <a href="">5 Likes</a>
+    <div *ngFor='let mPost of myPosts'>
+        <div class="col-xs-12 post">
+            <a (click)='editpost(mPost)' *ngIf='!mPost.edit'>Edit</a>
+            <a (click)='deletepost(mPost)' *ngIf='!mPost.edit'>Delete</a>
+            
+            <div *ngIf='mPost.edit' style="position: relative;">
+                <textarea  name="editContent" [id]='mPost._id' autofocus [(ngModel)]='mPost.post'></textarea>
+                <span class="cross-edit" (click)='cancelEdit(mPost);' >X</span>
+                <button type="submit" class="edit-submit-post" (click)='editpost(mPost);' 
+                [disabled]='mPost.post==mPost.oldContent'>Submit</button>
+            </div>
+
+
+            <p class="date">Date: {{mPost.createdDate}}</p>
+            <p>{{mPost.post}}</p>
+            <a *ngIf="mPost.likestate=='unlike'" (click)='unlike(mPost)'>{{mPost.likesCount}} Likes</a>
+            <a *ngIf="mPost.likestate=='like'|| !mPost.likestate" (click)='like(mPost)'>{{mPost.likesCount}} Likes</a>
+        </div>
     </div>
 </div>

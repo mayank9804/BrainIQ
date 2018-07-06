@@ -9,15 +9,19 @@ import { PolicyComponent } from "../shared/layouts/policy.component";
 import { TermsofserviceComponent } from "../shared/layouts/termsofservice.component";
 import { ContactusComponent } from "../shared/layouts/contactus.component";
 import { SettingsComponent } from "../shared/layouts/settings.component";
+import { StudentRouteGuard } from "../core/student.guard.service";
+import { PublicProfileComponent } from "../shared/layouts/publicprofile.component";
 
 const routes: Routes = [
     {
         path: 'student',
         component:StudentComponent,
+        canActivate:[StudentRouteGuard],
         children:[
             {
                 path:'dashboard',
-                component:HomeComponent
+                component:HomeComponent,
+                
             },
             {
                 path:'home',
@@ -47,6 +51,10 @@ const routes: Routes = [
             {
                 path:'terms-of-service',
                 component:TermsofserviceComponent
+            },
+            {
+                path:'mentor/:id',
+                component:PublicProfileComponent
             },
             {
                 path:'contact-us',

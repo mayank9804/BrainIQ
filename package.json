@@ -22,7 +22,7 @@
     "@angular/router": "^6.0.3",
     "angular-paging": "^2.2.2",
     "core-js": "^2.5.4",
-    "ngx-pagination": "^3.1.1",
+    "ng2-pagination": "^2.0.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

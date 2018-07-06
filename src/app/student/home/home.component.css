@@ -8,11 +8,14 @@
 }
 .post a{
     font-size:14px;
-    color: mediumturquoise;
+    color: rgb(213, 226, 226);
     cursor: pointer;
 }
-.post a.date{
+.post p.date{
     margin-left:2%;
+    display: inline;
+    font-size:14px;
+    color: rgb(213, 226, 226);
 }
 .post h2{
     font-size: 30px;

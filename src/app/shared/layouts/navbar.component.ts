@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CoreService } from '../../core/core.service';
+import { AuthService } from '../../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'shared-navbar',
@@ -9,7 +10,7 @@ import { CoreService } from '../../core/core.service';
 export class NavbarComponent implements OnInit {
 
   searchactivated:boolean=false;
-  constructor(private _coreService:CoreService) { }
+  constructor(private _authService:AuthService,private _route:Router) { }
 
   ngOnInit() {
   }
@@ -18,12 +19,13 @@ export class NavbarComponent implements OnInit {
     this.searchactivated =arg;
   }
   logout():void{
-    this._coreService.reset();
+    this._authService.deleteToken();
+    this._route.navigate(['/']);
   }
   isStudent(){
-    return this._coreService.isStudent;
+    return this._authService.whichRole().toLocaleLowerCase() == 'isstudent';
   }
   isMentor(){
-    return this._coreService.isMentor;
+    return this._authService.whichRole().toLocaleLowerCase() == 'ismentor';
   }
 }

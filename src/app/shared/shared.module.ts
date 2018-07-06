@@ -10,12 +10,14 @@ import { NavbarComponent } from './layouts/navbar.component';
 import { SidebarComponent } from './layouts/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { PublicProfileComponent } from './layouts/publicprofile.component';
 
 
 
 @NgModule({
   imports: [
-    CommonModule,BrowserAnimationsModule,RouterModule
+    CommonModule,BrowserAnimationsModule,RouterModule,FormsModule,HttpClientModule
   ],
   declarations: [
     NavbarComponent,
@@ -24,6 +26,7 @@ import { RouterModule } from '@angular/router';
     PolicyComponent,
     TermsofserviceComponent,
     ContactusComponent,
+    PublicProfileComponent
   ],
   exports:[
     NavbarComponent,

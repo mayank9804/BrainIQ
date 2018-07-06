@@ -12,9 +12,10 @@
     color: #FFF;
 }
 .studentBackground{
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    background-attachment: fixed;
     height: 100%;
     z-index: 5;
     background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgb(24, 24, 24) 500px), linear-gradient(to left, rgba(0, 0, 0, 0.1) 80%, rgb(24, 24, 24) 100%), url(../../assets/img/student.jpeg);

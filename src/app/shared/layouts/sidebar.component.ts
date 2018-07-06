@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,state,transition,keyframes,style,animate} from "@angular/animations";
-import { CoreService } from '../../core/core.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -10,10 +10,9 @@ import { CoreService } from '../../core/core.service';
     trigger('sideBar',[
       state('not',style({
         width:'50px'
-        
       })),
       state('hovered',style({
-        width:'200px'
+        width:'200px',        
       })),
       transition('not=>hovered',[
         animate(200,keyframes([
@@ -34,18 +33,16 @@ import { CoreService } from '../../core/core.service';
 })
 export class SidebarComponent implements OnInit {
   state:string= 'not';
-  constructor(private coreService :CoreService) { }
-
+  constructor(private _authService :AuthService) { }
   ngOnInit() {
   }
   sidebar():void{
     this.state = (this.state == 'hovered')?'not':'hovered';
-    console.log(this.state);
   }
   isStudent(){
-    return this.coreService.isStudent;
+    return this._authService.whichRole().toLocaleLowerCase() == 'isstudent';
   }
   isMentor(){
-    return this.coreService.isMentor;
+    return this._authService.whichRole().toLocaleLowerCase() == 'ismentor';
   }
 }

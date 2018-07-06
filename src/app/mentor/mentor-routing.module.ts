@@ -10,23 +10,23 @@ import { PolicyComponent } from "../shared/layouts/policy.component";
 import { TermsofserviceComponent } from "../shared/layouts/termsofservice.component";
 import { ContactusComponent } from "../shared/layouts/contactus.component";
 import { SettingsComponent } from "../shared/layouts/settings.component";
+import { MentorRouteGuard } from "../core/mentor.guard.service";
+import { PublicProfileComponent } from "../shared/layouts/publicprofile.component";
 
 
 const routes:Routes = [
     {
         path:'mentor',
         component:MentorComponent,
+        canActivate:[MentorRouteGuard],
         children:[
             {
                 path:'dashboard',
                 component:HomeComponent,
-                children:[
-                    {
-                        path:'home',
-                        redirectTo:'dashboard',
-                        pathMatch:'full'
-                    }
-                ]
+            },
+            {
+                path:'home',
+                component:HomeComponent,
             },
             {
                 path:'privacy-policy',
@@ -59,6 +59,10 @@ const routes:Routes = [
             {
                 path:'join-requests',
                 component:NewRequestsComponent
+            },
+            {
+                path:'student/:id',
+                component:PublicProfileComponent
             },
             {
                 path:'',

@@ -55,3 +55,7 @@
     display: block;
     margin: 2% auto;
 }
+button[disabled]{
+    cursor: not-allowed;
+    opacity: 0.4;
+}

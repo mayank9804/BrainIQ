@@ -1,0 +1,16 @@
+.profile{
+    text-align: center;
+}
+.profile *{
+    font-family: 'Open Sans',sans-serif;
+    font-size: 20px;
+}
+.profile h2{
+    font-family: 'Asap', sans-serif;
+    font-size:38px;
+}
+.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}

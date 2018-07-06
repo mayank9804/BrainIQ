@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CoreService } from '../core/core.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../core/auth.service';
+import { Observable } from 'rxjs';
+
 
 @Component({
   templateUrl: './login.component.html',
@@ -8,24 +10,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _route:Router,private _coreService:CoreService) { }
+  loginData = {}
+  errDisplay: any;
+  constructor(private _route: Router, private _authService: AuthService) { }
 
   ngOnInit() {
   }
 
+  login() {
+    this._authService.login(this.loginData).subscribe(
+      res => { },
+      err => { 
+        console.log("Error: "+err);
+      },
+      () => {
+        if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
+          this._route.navigate(['/student/dashboard']);
+        }
+        else if (this._authService.whichRole().toLocaleLowerCase() == 'ismentor') {
+          this._route.navigate(['/mentor/dashboard']);
+        }
+      }
+    )
+  }
 
-  log(){
-    this._coreService.authenticate();
-    if(this._coreService.isAuthenticated){
-      if(this._coreService.isStudent){
-        this._route.navigate(["/student/username"]);
-      }
-      else if(this._coreService.isMentor){
-        this._route.navigate(["/mentor/username"]);
-      }
-      else if(this._coreService.isAdmin){
-        //waiting
-      }
-    }
-  } 
 }

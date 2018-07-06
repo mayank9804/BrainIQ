@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoreService } from '../core/core.service';
+
 
 @Component({
   selector: 'app-admin-interface',
@@ -7,21 +9,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminInterfaceComponent {
 
-  isTeacher: boolean = false;
-  isStudent: boolean = true;
-  // p: number=1;
-  // collection: any[] = []; 
-
-  showStudentTable(): void{
-    // this.isStudent = !this.isStudent;
-    // this.isTeacher = !this.isTeacher;
-    this.isStudent = true;
-    this.isTeacher = false;
-
-  }
-  showTeacherTable(): void{
-    this.isTeacher = true;
-    this.isStudent = false;
-  }
-
+  users = [];
+	totalItem:Number = 0;
+	pageLimit :Number=5;
+	maxPagers:Number;
+	constructor(private httpService : CoreService){
+		this.getServerData(1);
+	}
+	
+	public getServerData(event){
+		this.httpService.getdata(event,this.pageLimit).subscribe((response) =>{
+				if(response.error) { 
+					alert('No data fetched');
+				} else {
+					console.log(response.totalItems);
+					
+					this.users = response.users;
+					this.totalItem = response.totalItems;
+					this.maxPagers = Math.ceil(response.totalItems/this.pageLimit);
+					console.log("Max"+this.maxPagers);
+				}
+			},
+			error =>{
+				alert('Server error!');
+			}
+		);
+		return event;
+	}
+	public getServerDataPost(event){
+		this.httpService.setLimit(event,this.pageLimit).subscribe((response) =>{
+				if(response.error) { 
+					alert('No data fetched');
+				} else {
+					console.log(response.totalItems);
+					this.maxPagers = Math.ceil(response.totalItems/this.pageLimit);
+					console.log("Max"+this.maxPagers);
+					this.users = response.users;
+					this.totalItem = response.totalItems;
+				}
+			},
+			error =>{
+				alert('Server error!');
+			}
+		);
+	}
+	public setpageLimit(){ 
+		console.log(this.pageLimit);
+		this.getServerDataPost(1);
+	}
 }

@@ -5,16 +5,17 @@
     <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
     <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
   </div>
+  <div *ngIf='errDisplay'>{{errDisplay}}</div>
   <form #form="ngForm">
-    <input #email="ngModel" ngModel required type="email" name="Email" placeholder="Email" 
-    [ngClass]="{'errorInput':email.invalid && email.touched}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-    <input ngModel #password="ngModel" type="password" name="password"  required placeholder="Password"
+    <input #username="ngModel" [(ngModel)]='loginData.username' required type="text" name="username" placeholder="Username" 
+    [ngClass]="{'errorInput':username.invalid && username.touched}">
+    <input [(ngModel)]='loginData.password' #password="ngModel" type="password" name="password"  required placeholder="Password"
      [ngClass]="{'errorInput':password.invalid && password.touched}">
-    <button type="submit" [routerLink]="['/dashboard']" (click)="log()" [disabled]="form.invalid" 
+    <button (click)="login()" [disabled]="form.invalid" 
     [ngClass]="{'disableButton':form.invalid}">Sign In</button>
   </form>
   <div class="links">
-    <a href="*" id="ForgotPassword">Forgot Password</a>
+    <a href="#" id="ForgotPassword">Forgot Password</a>
   </div>  
 </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MentorGeneralService } from '../../core/mentor/mentor.general.service';
 
 @Component({
   selector: 'app-new-requests',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewRequestsComponent implements OnInit {
 
-  constructor() { }
+  newRequestStudent:any=[];
+  constructor(private _mentorGeneralService:MentorGeneralService) { }
 
   ngOnInit() {
+    this.newRequests();
   }
 
+  newRequests(){
+    this._mentorGeneralService.newRequests().subscribe(res=>{
+      this.newRequestStudent = res.newRequests
+    },err=>{
+      console.log(err.status);
+    },()=>{
+      console.log("New requests call completed!");
+    })
+  }
+
+  approveRequest(data){
+    this._mentorGeneralService.approveStudent(data).subscribe(res=>{
+      this.newRequestStudent = this.newRequestStudent.filter(e=>e._id!=data._id);
+    },err=>{
+      console.log(err.status);
+    },()=>{
+      console.log("Approve Requests call handled!");
+    })
+  }
 }

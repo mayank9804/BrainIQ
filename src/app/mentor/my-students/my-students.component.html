@@ -1,49 +1,16 @@
 <div class="myStudents">
   <h2>Your kids..</h2>
   <div class="row studentContainer">
-    <div class="col-xs-4 student-box">
-      <img src="" alt="">
-      <h2>Mayank</h2>
-      <p>Lovely Professional University</p>
-      <a href="">Remove</a>
+    <div *ngFor='let student of myStudents'>
+      <div class="col-xs-4 student-box">
+        <img src="" alt="">
+        <h2>{{student.name.firstname}}&nbsp;{{student.name.lastname}}</h2>
+        <p>{{student.email}}</p>
+        <!-- Public profile of  -->
+        <a [routerLink]="['/mentor/student',student._id]">{{student.username}}</a>
+        <br>
+        <a (click)='removeStudent(student._id);'>Remove</a>
+      </div>
     </div>
-    
-    <div class="col-xs-4 student-box">
-      <img src="" alt="">
-      <h2>Mayank</h2>
-      <p>Lovely Professional University</p>
-      <a href="">Remove</a>
-    </div>
-    
-    <div class="col-xs-4 student-box">
-      <img src="" alt="">
-      <h2>Mayank</h2>
-      <p>Lovely Professional University</p>
-      <a href="">Remove</a>
-    </div>
-    
   </div>
-  <div class="row studentContainer">
-      <div class="col-xs-4 student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="">Remove</a>
-      </div>
-      
-      <div class="col-xs-4 student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="">Remove</a>
-      </div>
-      
-      <div class="col-xs-4 student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="">Remove</a>
-      </div>
-      
-    </div>
 </div>
