@@ -5,7 +5,35 @@
     <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
     <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
   </div>
-  <div *ngIf='errDisplay'>{{errDisplay}}</div>
+  <form [formGroup]="loginForm" [ngClass]="{'has-error':emailMessage}">
+    <input  formControlName = "UserName" type="text" name="username" placeholder="User Name" [ngClass]="{'errorInput':userMessage}" >
+    <span class="help-block" *ngIf="userMessage">{{userMessage}}</span>
+    <input formControlName = "Password" type="password" name="password" placeholder="Password" [ngClass]="{'errorInput':passwordMessage}" >
+    <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
+    <button type="submit" (click)="log()" [routerLink]="['/dashboard']" [disabled]="loginForm.invalid" [ngClass]="{'disableButton':loginForm.invalid}">Sign In</button>
+  </form>
+  <div class="links">
+    <a href="*" id="ForgotPassword">Forgot Password</a>
+  </div>  
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- Previous Code -->
+
+
+<!-- <div class = "loginPage">
+  <div class="wrapper">
+  
+  <div class="header">
+    <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
+    <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
+  </div>
   <form #form="ngForm">
     <input #username="ngModel" [(ngModel)]='loginData.username' required type="text" name="username" placeholder="Username" 
     [ngClass]="{'errorInput':username.invalid && username.touched}">
@@ -18,4 +46,4 @@
     <a href="#" id="ForgotPassword">Forgot Password</a>
   </div>  
 </div>
-</div>
+</div> -->
