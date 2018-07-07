@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { StudentModule } from './student/student.module';
 import { MentorModule } from './mentor/mentor.module';
 import { AdminModule } from './admin/admin.module';
+import * as $ from 'jquery'; 
 
 
 @NgModule({

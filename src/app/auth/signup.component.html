@@ -34,7 +34,7 @@
         <input type="radio" name="roles" value="mentor" [(ngModel)]='role'>Mentor
       </div>
       <input #conditionalUrl='ngModel' [(ngModel)]='linkedinUrl' required class="inp" type="text" name="url" placeholder="LinkedIn url" *ngIf="form.value.roles=='mentor'">
-      <button (click)="signup()" [disabled]="form.invalid" [ngClass]="{'disableButton':form.invalid}">Sign Up</button>
+      <button (click)="signup()" [disabled]="form.invalid " [ngClass]="{'disableButton':form.invalid}">Sign Up</button>
     </form>
   </div>
   

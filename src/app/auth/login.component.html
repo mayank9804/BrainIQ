@@ -11,8 +11,8 @@
     [ngClass]="{'errorInput':username.invalid && username.touched}">
     <input [(ngModel)]='loginData.password' #password="ngModel" type="password" name="password"  required placeholder="Password"
      [ngClass]="{'errorInput':password.invalid && password.touched}">
-    <button (click)="login()" [disabled]="form.invalid" 
-    [ngClass]="{'disableButton':form.invalid}">Sign In</button>
+    <button (click)="login()" [disabled]="form.invalid || loading" 
+    [ngClass]="{'disableButton':form.invalid||loading}">Sign In</button>
   </form>
   <div class="links">
     <a href="#" id="ForgotPassword">Forgot Password</a>

@@ -11,6 +11,7 @@ import { ContactusComponent } from "../shared/layouts/contactus.component";
 import { SettingsComponent } from "../shared/layouts/settings.component";
 import { StudentRouteGuard } from "../core/student.guard.service";
 import { PublicProfileComponent } from "../shared/layouts/publicprofile.component";
+import { FetchMentorResolver } from "../core/student/fetchmentors.resolver.service";
 
 const routes: Routes = [
     {
@@ -33,7 +34,8 @@ const routes: Routes = [
             },
             {
                 path:'mentors',
-                component:MentorsComponent
+                component:MentorsComponent,
+                resolve:{ myMentors:FetchMentorResolver }
             },
             {
                 path:'quiz-hub',

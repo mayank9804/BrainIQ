@@ -9,6 +9,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { StudentComponent } from './student.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,SharedModule,StudentRoutingModule

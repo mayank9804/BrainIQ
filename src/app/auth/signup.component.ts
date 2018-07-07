@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
@@ -12,10 +13,10 @@ export class SignupComponent implements OnInit {
   }
   role:String
   linkedinUrl:any
-
-  constructor(private _route:Router,private _authService:AuthService) { }
-
+  
+  constructor(private _route:Router,private _authService:AuthService) {}
   ngOnInit() {
+
   }
   
   async signup(){

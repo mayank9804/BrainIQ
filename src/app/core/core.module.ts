@@ -12,6 +12,7 @@ import { LoginRouteGuard } from './login.guard.service';
 import { HeroRouteGuard } from './hero.guard.service';
 import { MentorGeneralService } from './mentor/mentor.general.service';
 import { StudentGeneralService } from './student/student.general.service';
+import { FetchMentorResolver } from './student/fetchmentors.resolver.service';
 @NgModule({
   imports: [
     CommonModule,HttpClientModule
@@ -29,7 +30,8 @@ import { StudentGeneralService } from './student/student.general.service';
     LoginRouteGuard,
     HeroRouteGuard,
     MentorGeneralService,
-    StudentGeneralService
+    StudentGeneralService,
+    FetchMentorResolver
   ]
 })
 export class CoreModule { }

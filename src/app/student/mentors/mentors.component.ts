@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentGeneralService } from '../../core/student/student.general.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mentors',
@@ -10,21 +11,27 @@ export class MentorsComponent implements OnInit {
 
   myMentors: any = [];
   allMentors: any = [];
-  constructor(private _studentGeneralService: StudentGeneralService) { }
+  constructor(private _studentGeneralService: StudentGeneralService,private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.getMyMentors();
+    this.route.data.subscribe(
+      data => {
+        this.myMentors = data['myMentors'].mentors;
+        // console.log()
+        this.browseMentors();
+      }
+    )
   }
 
-  getMyMentors() {
-    this._studentGeneralService.getMyMentors().subscribe(res => {
-      this.myMentors = res.mentors;
-    }, err => {
-      console.log(err.status);
-    }, () => {
-      this.browseMentors();
-    });
-  }
+  // getMyMentors() {
+  //   this._studentGeneralService.getMyMentors().subscribe(res => {
+  //     this.myMentors = res.mentors;
+  //   }, err => {
+  //     console.log(err.status);
+  //   }, () => {
+  //     this.browseMentors();
+  //   });
+  // }
 
   browseMentors() {
     this._studentGeneralService.browseMentors().subscribe(res => {
