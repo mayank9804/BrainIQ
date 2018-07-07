@@ -1,49 +1,31 @@
 <div class="myMentors">
     <h2 class="tag-line">Your Mentors</h2>
     <div class="row mentorContainer">
-      <div class="col-xs-4 mentor-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="">Unsubscribe</a>
-      </div>
-      
-      <div class="col-xs-4 mentor-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="">Unsubscribe</a>
-      </div>
-      
-      <div class="col-xs-4 mentor-box">
-          <img src="" alt="">
-          <h2>Mayank</h2>
-          <p>Lovely Professional University</p>
-          <a href="">Unsubscribe</a>
-      </div>
-      
+        <div *ngFor='let mentor of myMentors'>
+            <div class="col-xs-4 mentor-box">
+                <img src="" alt="">
+                <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
+                <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
+                <p>{{mentor.email}}</p>
+                <p>{{mentor.linkedinUrl }}</p>
+                <a (click)='unSubscribeMentor(mentor.username);'>Unubscribe</a>
+            </div>
+        </div>
     </div>
-    <div class="row mentorContainer">
-        <div class="col-xs-4 mentor-box">
-            <img src="" alt="">
-            <h2>Mayank</h2>
-            <p>Lovely Professional University</p>
-            <a href="">Unsubscribe</a>
+
+    <h2 class="tag-line">Browse Mentors</h2>
+    <div *ngIf='allMentors && allMentors.length>0' class="row mentorContainer">
+        <div *ngFor='let mentor of allMentors'>
+            <div class="col-xs-4 mentor-box">
+                <img src="" alt="">
+                <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
+                <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
+                <p>{{mentor.email}}</p>
+                <p>{{mentor.linkedinUrl }}</p>
+                <a (click)='subscribeMentor(mentor.username);'>Subscribe</a>
+            </div>
         </div>
-        
-        <div class="col-xs-4 mentor-box">
-            <img src="" alt="">
-            <h2>Mayank</h2>
-            <p>Lovely Professional University</p>
-            <a href="">Unsubscribe</a>
-        </div>
-        
-        <div class="col-xs-4 mentor-box">
-            <img src="" alt="">
-            <h2>Mayank</h2>
-            <p>Lovely Professional University</p>
-            <a href="">Unsubscribe</a>
-        </div>
-        
-      </div>
-  </div>
+    </div>
+    <!-- <h1 *ngIf='(allMentors==null)'>No data available</h1>
+    <h1 *ngIf='(allMentors!=null && allMentors.length == 0)'>Loading........</h1> -->
+</div>

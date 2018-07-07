@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HeroComponent } from './hero/hero.component';
+import { HeroRouteGuard } from './core/hero.guard.service';
 
 const routes: Routes = [
   {
       path:'',
-      component:HeroComponent
+      component:HeroComponent,
+      canActivate:[HeroRouteGuard]
   }
 ];
 

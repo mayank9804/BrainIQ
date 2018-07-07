@@ -9,6 +9,11 @@
     color: #aaa;
     overflow: hidden;
     transition: width .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+}
+.sidebar.shadow{
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.7);
+    transition: 0.2s ease-in;
 }
 .sidebar *:not(i){
     font-family: 'Josefin Sans', sans-serif;

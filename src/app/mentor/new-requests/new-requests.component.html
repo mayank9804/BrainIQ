@@ -1,49 +1,16 @@
 <div class="newRequests">
-    <h2>New Requests</h2>
-    <div class="row newStudentContainer">
+  <h2>New Requests</h2>
+  <div class="row newStudentContainer">
+    <div *ngFor='let newRequest of newRequestStudent'>
       <div class="col-xs-4 new-student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="#">Approve</a>
+          <img src="" alt="">
+          <h2>{{newRequest.name.firstname}}&nbsp;{{newRequest.name.lastname}}</h2>
+          <p>{{newRequest.email}}</p>
+          <!-- Public profile of  -->
+          <a [routerLink]="['/mentor/student',newRequest._id]">{{newRequest.username}}</a>
+          <br>
+          <a (click)='approveRequest(newRequest)'>Approve</a>
       </div>
-      
-      <div class="col-xs-4 new-student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="#">Approve</a>
-      </div>
-      
-      <div class="col-xs-4 new-student-box">
-        <img src="" alt="">
-        <h2>Mayank</h2>
-        <p>Lovely Professional University</p>
-        <a href="#">Approve</a>
-      </div>
-      
     </div>
-    <div class="row newStudentContainer">
-        <div class="col-xs-4 new-student-box">
-          <img src="" alt="">
-          <h2>Mayank</h2>
-          <p>Lovely Professional University</p>
-          <a href="#">Approve</a>
-        </div>
-        
-        <div class="col-xs-4 new-student-box">
-          <img src="" alt="">
-          <h2>Mayank</h2>
-          <p>Lovely Professional University</p>
-          <a href="#">Remove</a>
-        </div>
-        
-        <div class="col-xs-4 new-student-box">
-          <img src="" alt="">
-          <h2>Mayank</h2>
-          <p>Lovely Professional University</p>
-          <a href="#">Remove</a>
-        </div>
-        
-      </div>
   </div>
+</div>

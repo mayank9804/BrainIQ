@@ -1,30 +1,24 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from "rxjs";
+import { map,catchError,tap } from "rxjs/operators";
+
 
 @Injectable()
 export class CoreService{
-    isAuthenticated:boolean=false;
-    isStudent:boolean=false;
-    isMentor:boolean=false;
-    isAdmin:boolean=false;
+    role:String;
+    private BASE_URL:string = 'http://localhost:3000';
 
-    constructor(){
-        this.authenticate();
-    }
-    authenticate(){
-        this.isAuthenticated = true;
-        let randDecision = Math.ceil(Math.random()*2);
-        if(randDecision == 1){
-            this.isStudent = true;
-        }
-        else{
-            this.isMentor = true;
-        }
-    }
-    reset(){
-        this.isAuthenticated = false;
-        this.isStudent = false;
-        this.isMentor = false;
-        this.isAdmin = false;
-    }
-
+    constructor(private _http : HttpClient){}
+    
+    public getdata(page:Number,data:Number):any{
+		return this._http.get(`${this.BASE_URL}/paginate/students/${page}`).pipe(
+            catchError(err=>throwError(err))
+    )}
+    
+    public setLimit(page:Number,data:Number):any{
+		return this._http.post(`${this.BASE_URL}${page}`,{pageLimit:data}).pipe(
+            catchError(err=>throwError(err))
+    )}
+    
 }

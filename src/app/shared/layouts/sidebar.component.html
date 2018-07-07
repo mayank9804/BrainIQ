@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" [ngClass]="{'shadow':state=='hovered'}">
   <div class="root-sidebar" [@sideBar]='state' (mouseenter) ="sidebar()" (mouseleave) ="sidebar()">
     <div class="root-item">
         <i class="fa fa-home fa-2x" aria-hidden="true"></i>

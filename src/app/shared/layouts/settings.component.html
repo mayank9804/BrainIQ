@@ -1,40 +1,42 @@
 <div class="profile">
-    <h2>Mayank Sharma</h2>
+    <h2>{{myDetails.name.firstname}}&nbsp;{{myDetails.name.lastname}}</h2>
     <img src="../../../assets/img/teacher.jpeg" alt="">
     <form class="form-settings">
         <label for="fname">First Name</label>
-        <input type="text" name="fname" value="Mayank">
-        <button type="submit">Change</button>
+        
+        <input type="text" name="fname" [(ngModel)]='data.firstname' value="{{myDetails.name.firstname}}">
+        <button type="submit" (click)='change("firstname")' 
+        [disabled]="(data.firstname ==myDetails.name.firstname || data.firstname=='')">Change</button>
         <label for="lname">Last Name</label>
-        <input type="text" name="lname" value="Sharma">
-        <button type="submit">Change</button>
+        <input type="text" [(ngModel)]='data.lastname' name="lname" value="{{myDetails.name.lastname}}">
+        <button type="submit" (click)='change("lastname")' [disabled]="(data.lastname==myDetails.name.lastname || data.lastname=='')">Change</button>
         <label for="email">Email Address</label>
-        <input type="email" name="email" value="mayank04111998@gmail.com">
-        <button type="submit">Change</button>
-        <label for="university">University</label>
-        <input type="text" name="university" value="Lovely Professional University">
-        <button type="submit">Change</button>
+        <input #email='ngModel' type="email" [(ngModel)]='data.email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" value="{{myDetails.email}}">
+        <button type="submit" (click)='change("email")' [disabled]="(data.email==myDetails.email || data.email==''||email.invalid)">Change</button>
+        <h4 *ngIf='data.firstname==myDetails.name.firstname'>Firstname cannot be same as old one</h4>
     </form>
     <h2 class="seperator">Change Password</h2>
     <form class="form-settings passwordForm">
         <label for="current-password">Current Password</label>
-        <input type="text" name="current-password">
+        <input #current='ngModel' [(ngModel)]='data.currentpassword' type="password" name="current-password">
         <label for="new-password">New Password</label>
-        <input type="text" name="new-password">
+        <input #password='ngModel' [(ngModel)]='data.password' type="password" name="new-password">
         <label for="re-new-password">Retype new Password</label>
-        <input type="text" name="re-new-password">
-        <button type="submit">Change</button>
+        <input #repassword='ngModel' [(ngModel)]='data.repassword' type="password" name="re-new-password">
+        <button type="submit" [disabled]="(data.password!=data.repassword || data.password=='' || data.currentpassword=='')">Change</button>
+
+        
     </form>
     <h2 class="seperator">Social Connectivity</h2>
     <form class="form-settings">
         <label for="facebook">Facebook</label>
-        <input type="url" name="facebook">
-        <button type="submit">Update</button>
+        <input #fb='ngModel' [(ngModel)]='data.fb' type="url" name="facebook" placeholder="https://www.facebook.com/username" pattern="https://www.facebook.com/[a-z0-9._%+-]+">
+        <button type="submit" [disabled]="data.fb=='' || fb.invalid">Update</button>
         <label for="twitter">Twitter</label>
-        <input type="text" name="new-password">
-        <button type="submit">Update</button>
+        <input #twitter='ngModel' [(ngModel)]='data.twitter' type="url" name="twitter" placeholder="https://www.twitter.com/username" pattern="https://www.twitter.com/[a-z0-9._%+-]+">
+        <button type="submit" [disabled]="data.twitter==''">Update</button>
         <label for="linkedin">LinkedIN</label>
-        <input type="text" name="linkedin">
-        <button type="submit">Update</button>
+        <input #linkedin='ngModel' [(ngModel)]='data.linkedin' type="text" name="linkedin" placeholder="https://www.linkedin.com/username" pattern="https://www.linkedin.com/[a-z0-9._%+-]+">
+        <button type="submit" [disabled]="data.linkedin==''">Update</button>
     </form>
 </div>

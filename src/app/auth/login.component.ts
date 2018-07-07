@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CoreService } from '../core/core.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { FormGroup,FormBuilder, Validators, AbstractControl } from "@angular/forms";
 import { Observable } from "rxjs";
 // import  "rxjs/add/operator/debounceTime";
+=======
+import { AuthService } from '../core/auth.service';
+import { Observable } from 'rxjs';
+
+>>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
 
 @Component({
   templateUrl: './login.component.html',
@@ -16,6 +21,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private _route:Router,private _coreService:CoreService, private fb:FormBuilder) { }
 
+<<<<<<< HEAD
+=======
+  loginData = {}
+  errDisplay: any;
+  constructor(private _route: Router, private _authService: AuthService) { }
+>>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -48,15 +59,19 @@ export class LoginComponent implements OnInit {
   }
   
 
-
-  log(){
-    this._coreService.authenticate();
-    if(this._coreService.isAuthenticated){
-      if(this._coreService.isStudent){
-        this._route.navigate(["/student/username"]);
-      }
-      else if(this._coreService.isMentor){
-        this._route.navigate(["/mentor/username"]);
+  login() {
+    this._authService.login(this.loginData).subscribe(
+      res => { },
+      err => { 
+        console.log("Error: "+err);
+      },
+      () => {
+        if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
+          this._route.navigate(['/student/dashboard']);
+        }
+        else if (this._authService.whichRole().toLocaleLowerCase() == 'ismentor') {
+          this._route.navigate(['/mentor/dashboard']);
+        }
       }
       else if(this._coreService.isAdmin){
         //waiting
