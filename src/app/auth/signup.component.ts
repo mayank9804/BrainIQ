@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
       await 
     }
     else if(this.role.toLocaleLowerCase() == 'mentor'){
-      this.signupData.linkedinUrl = this.linkedinUrl;
+      this.signupData.name = this.linkedinUrl;
       await this._authService.registerMentor(this.signupData,()=>{
         this._route.navigateByUrl('/mentor/dashboard');
       });

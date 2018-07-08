@@ -10,7 +10,7 @@
     <span class="help-block" *ngIf="userMessage">{{userMessage}}</span>
     <input formControlName = "Password" type="password" name="password" placeholder="Password" [ngClass]="{'errorInput':passwordMessage}" >
     <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
-    <button type="submit" (click)="log()" [routerLink]="['/dashboard']" [disabled]="loginForm.invalid" [ngClass]="{'disableButton':loginForm.invalid}">Sign In</button>
+    <button type="submit" (click)="login()" [routerLink]="['/dashboard']" [disabled]="loginForm.invalid" [ngClass]="{'disableButton':loginForm.invalid}">Sign In</button>
   </form>
   <div class="links">
     <a href="*" id="ForgotPassword">Forgot Password</a>

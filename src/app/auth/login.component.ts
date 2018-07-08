@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 import { FormGroup,FormBuilder, Validators, AbstractControl } from "@angular/forms";
-import { Observable } from "rxjs";
-// import  "rxjs/add/operator/debounceTime";
-=======
 import { AuthService } from '../core/auth.service';
 import { Observable } from 'rxjs';
 
->>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
 
 @Component({
   templateUrl: './login.component.html',
@@ -19,14 +14,11 @@ export class LoginComponent implements OnInit {
   userMessage : string;
   passwordMessage : string;
 
-  constructor(private _route:Router,private _coreService:CoreService, private fb:FormBuilder) { }
+  constructor(private _route:Router,private _authService: AuthService ,private fb:FormBuilder) { }
 
-<<<<<<< HEAD
-=======
   loginData = {}
   errDisplay: any;
-  constructor(private _route: Router, private _authService: AuthService) { }
->>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
+
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -72,13 +64,8 @@ export class LoginComponent implements OnInit {
         else if (this._authService.whichRole().toLocaleLowerCase() == 'ismentor') {
           this._route.navigate(['/mentor/dashboard']);
         }
-      }
-      else if(this._coreService.isAdmin){
-        //waiting
-      }
-    }
-  }
-  // console.log(this.loginForm); 
+      })
+    } 
 }
 
 

@@ -36,7 +36,7 @@ form input{
     padding: 20px;
     margin-top:30px;
     border-radius:5px;  
-    border:0.5px solid black; /*#EA1879*/
+    border:0.5px solid #EA1879;
     transition: 0.3s ease-in;
     outline: none;
     
@@ -44,6 +44,7 @@ form input{
 form input.errorInput{
     border:0.5px solid red;
     transition: 0.3s ease-out;
+    background-color: antiquewhite;
 }
 .loginPage button{
     display: block;
