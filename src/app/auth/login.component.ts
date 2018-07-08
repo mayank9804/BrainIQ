@@ -1,84 +1,108 @@
-import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, Event, NavigationStart, NavigationCancel, NavigationError, NavigationEnd, RoutesRecognized } from '@angular/router';
-=======
-import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { FormGroup,FormBuilder, Validators, AbstractControl } from "@angular/forms";
-import { Observable } from "rxjs";
-// import  "rxjs/add/operator/debounceTime";
-=======
->>>>>>> dba5a22b8a117de2410295259490b5f00c124e5c
-import { AuthService } from '../core/auth.service';
-import { Observable } from 'rxjs';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { Observable } from 'rxjs/Observable';
 
->>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
+import { AuthService } from '../core/auth.service';
+
+import { CoreService } from '../core/core.service';
+import { debounceTime } from 'rxjs/operators';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+
+    trigger('inputEntry', [
+      state('in',style({transform:'translateY(0)',opacity:1})),
+      transition('void => *',[
+        style({ transform: 'translateY(-20%)', opacity: 0 }),
+        animate('500ms ease-out')
+      ])
+    ])
+  ]
+
 })
 export class LoginComponent implements OnInit {
+  // Login FormGroup
   loginForm: FormGroup;
-  userMessage : string;
-  passwordMessage : string;
-
-  constructor(private _route:Router,private _coreService:CoreService, private fb:FormBuilder) { }
-
-<<<<<<< HEAD
-=======
-  loginData = {}
-  errDisplay: any;
-<<<<<<< HEAD
+  userMessage: string;
+  passwordMessage: string;
   loading:boolean=false;
-  constructor(private _route: Router, private _authService: AuthService) { 
-    
-  }
-=======
-  constructor(private _route: Router, private _authService: AuthService) { }
->>>>>>> c9ec91fe8f357e1cae575cfeb7c8f5a23b23fbd3
->>>>>>> dba5a22b8a117de2410295259490b5f00c124e5c
+  loginData = {};
+  errDisplay: any;;
+  
+
+  errMessage: string;
+  
+  constructor(private _route: Router, private _authService: AuthService, private _coreService: CoreService, private fb: FormBuilder) { }
+
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      UserName:['',Validators.required],
-      Password:['',Validators.required]
+
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', Validators.required]
+
     });
-    this.loginForm.get("UserName").valueChanges.subscribe(value=>
-      this.userNotify(this.loginForm.get("UserName")));
-    this.loginForm.get("Password").valueChanges.subscribe(value=>
-      this.passwordNotify(this.loginForm.get("Password")));
-  }
-  private validationMessages = {
-    required:"Please fill this field"
-    
-  }
-  userNotify(c : AbstractControl):void {
-    this.userMessage = '';//Clear the previous messages if any
-    if((c.touched || c.dirty)&& c.errors){
-      this.userMessage = Object.keys(c.errors).map(key=>
-        this.validationMessages[key]).join('');
-    }
+
+    this.loginForm.get("username").valueChanges.pipe(
+      debounceTime(500)
+    ).subscribe(value =>
+      this.userNotify(this.loginForm.get("username")));
+
+    this.loginForm.get("password").valueChanges.subscribe(value =>
+      this.passwordNotify(this.loginForm.get("password")));
   }
 
-  passwordNotify(c : AbstractControl):void {
+  private validationMessagesUsername = {
+    required: "Username cannot be empty",
+    minlength: "Too short!"
+  }
+  private validationMessagesPassword = {
+    required: "Please input your top secret password!"
+  }
+  userNotify(c: AbstractControl): void {
+    //Clear the previous messages if any
+    this.userMessage = '';
+    if ((c.touched || c.dirty) && c.errors) {
+      this.userMessage = Object.keys(c.errors).map(key =>
+        this.validationMessagesUsername[key]).join('');
+    }
+
+  }
+
+  passwordNotify(c: AbstractControl): void {
     this.passwordMessage = '';//Clear the previous messages if any
-    if((c.touched || c.dirty)&& c.errors){
-      this.passwordMessage = Object.keys(c.errors).map(key=>
-        this.validationMessages[key]).join('');
+    if ((c.touched || c.dirty) && c.errors) {
+      this.passwordMessage = Object.keys(c.errors).map(key =>
+        this.validationMessagesPassword[key]).join('');
     }
   }
-  
 
-  login() {
-    this.loading = true;
-     this._authService.login(this.loginData).subscribe(
-      res => { },
-      err => { 
-        console.log("Error: "+err);
+
+  login(data) {
+    Object.keys(data).map(key => {
+      this.loginData[key] = data[key];
+    });
+    this.loading=true;
+    this._authService.login(this.loginData).subscribe(
+      res => { 
+        this.loading=false;
+      },
+      err => {
+        console.log(err);
+        if (err.status == 401) {
+          this.errMessage = err.error.message;
+        }
+        else {
+          this.errMessage = "Something is quite not right!";
+        }
+        this.loading=false;
       },
       () => {
-        this.loading = false;
+        this.loading=false;
         if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
           this._route.navigate(['/student/dashboard']);
         }
@@ -86,49 +110,6 @@ export class LoginComponent implements OnInit {
           this._route.navigate(['/mentor/dashboard']);
         }
       }
-      else if(this._coreService.isAdmin){
-        //waiting
-      }
     }
-  }
-  // console.log(this.loginForm); 
 }
 
-
-
-
-
-
-// previous Code
-
-// import { Component, OnInit } from '@angular/core';
-// import { CoreService } from '../core/core.service';
-// import { Router } from '@angular/router';
-
-// @Component({
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent implements OnInit {
-
-//   constructor(private _route:Router,private _coreService:CoreService) { }
-
-//   ngOnInit() {
-//   }
-
-
-//   log(){
-//     this._coreService.authenticate();
-//     if(this._coreService.isAuthenticated){
-//       if(this._coreService.isStudent){
-//         this._route.navigate(["/student/username"]);
-//       }
-//       else if(this._coreService.isMentor){
-//         this._route.navigate(["/mentor/username"]);
-//       }
-//       else if(this._coreService.isAdmin){
-//         //waiting
-//       }
-//     }
-//   } 
-// }
