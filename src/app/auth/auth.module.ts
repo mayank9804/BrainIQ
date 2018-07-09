@@ -6,12 +6,13 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { Observable } from "rxjs";
 
 @NgModule({
   imports: [
     CommonModule,ReactiveFormsModule
-    ,AuthRoutingModule,SharedModule
+    ,AuthRoutingModule,SharedModule,BrowserAnimationsModule
 
     // CommonModule,FormsModule
     // ,AuthRoutingModule,SharedModule

@@ -1,17 +1,52 @@
+.overlay{
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index:100;
+    cursor: not-allowed;
+}
 .loginPage{
-    /* background-color: rgb(255, 145, 0); */
     display: flex;
     flex-direction: column;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
 }
-.loginPage *{
-    font-family: 'Open Sans', sans-serif;
+
+.loginPage .header *{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.loginPage .links{
+    font-family: 'Josefin Sans', sans-serif;
 }
 .loginPage .wrapper{
-    width:25%;
-    /* background-color: brown; */
+    width: 40%;
+}
+.loginPage .help-block{
+    font-size: 15px;
+    font-family: 'Josefin Sans',sans-serif;
+}
+
+@media (max-width:1000px){
+    .loginPage .wrapper{
+        width: 60%;  
+    }
+}
+@media (max-width:500px){
+    .loginPage .wrapper{
+        width: 90%;  
+    }
+}
+.wrapper h4{
+    text-align: center;
+    color: #EF5133;
+    font-family: 'Josefin Sans',sans-serif;
 }
 .loginPage .header{
     display: flex;
@@ -24,10 +59,6 @@
     color:#8D7FC9;
     margin-top: 10px;
 }
-.loginPage .logo{
-    height:70px;
-    width: 210px;
-}
 form input{
     display: block;
     height: 50px;
@@ -37,9 +68,8 @@ form input{
     margin-top:30px;
     border-radius:5px;  
     border:0.5px solid #EA1879;
-    transition: 0.3s ease-in;
     outline: none;
-    
+    font-family: 'Open Sans', sans-serif;
 }
 form input.errorInput{
     border:0.5px solid red;
@@ -58,6 +88,7 @@ form input.errorInput{
     color: white;
     font-size: 15px;
     transition: 0.1s ease-in;
+    font-family: 'Open Sans', sans-serif; 
 }
 button.disableButton{
     opacity: 0.8;

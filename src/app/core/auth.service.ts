@@ -50,7 +50,7 @@ export class AuthService {
                 this.saveToken(res.token)
             }),
             catchError(err => {
-                throw 'error in posting ' + err;
+                throw err;
             })
         )
     }

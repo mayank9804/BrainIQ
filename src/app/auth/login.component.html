@@ -1,49 +1,33 @@
-<div class = "loginPage">
+<div class="overlay" *ngIf='loading'></div>
+<div class="loginPage">
   <div class="wrapper">
-  
-  <div class="header">
-    <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
-    <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
+
+    <div class="header">
+      <a [routerLink]="['/']"> <img src="../../assets/img/logo.png" alt="Brainees! Get your skill IQ."></a>
+      <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
+    </div>
+
+
+    <form [formGroup]="loginForm" [@inputEntry]='in'>
+
+      <div class="form-group">
+        <input formControlName="username" type="text" name="username" placeholder="Username" [ngClass]="{'errorInput':userMessage }"
+          autocomplete="off">
+      </div>
+      <span class="help-block" *ngIf="userMessage">{{userMessage}}</span>
+
+      <div class="form-group">
+        <input formControlName="password" type="password" name="password" placeholder="Password" [ngClass]="{'errorInput':passwordMessage}">
+      </div>
+      <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
+      <h4 *ngIf='errMessage'>{{errMessage}}</h4>
+      <button type="submit" #loginbtn (click)="login(loginForm.value)" [disabled]="loginForm.invalid" [ngClass]="{'disableButton':loginForm.invalid}">Sign In</button>
+      <div class="links">
+        <!-- Yet to be done -->
+        <a href="#" id="ForgotPassword">Forgot Password</a>
+      </div>
+    </form>
+
+
   </div>
-  <form [formGroup]="loginForm" [ngClass]="{'has-error':emailMessage}">
-    <input  formControlName = "UserName" type="text" name="username" placeholder="User Name" [ngClass]="{'errorInput':userMessage}" >
-    <span class="help-block" *ngIf="userMessage">{{userMessage}}</span>
-    <input formControlName = "Password" type="password" name="password" placeholder="Password" [ngClass]="{'errorInput':passwordMessage}" >
-    <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
-    <button type="submit" (click)="login()" [routerLink]="['/dashboard']" [disabled]="loginForm.invalid" [ngClass]="{'disableButton':loginForm.invalid}">Sign In</button>
-  </form>
-  <div class="links">
-    <a href="*" id="ForgotPassword">Forgot Password</a>
-  </div>  
 </div>
-</div>
-
-
-
-
-
-
-
-<!-- Previous Code -->
-
-
-<!-- <div class = "loginPage">
-  <div class="wrapper">
-  
-  <div class="header">
-    <img class="logo" src="../../assets/logo.png" alt="Logo Not Found.">
-    <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
-  </div>
-  <form #form="ngForm">
-    <input #username="ngModel" [(ngModel)]='loginData.username' required type="text" name="username" placeholder="Username" 
-    [ngClass]="{'errorInput':username.invalid && username.touched}">
-    <input [(ngModel)]='loginData.password' #password="ngModel" type="password" name="password"  required placeholder="Password"
-     [ngClass]="{'errorInput':password.invalid && password.touched}">
-    <button (click)="login()" [disabled]="form.invalid" 
-    [ngClass]="{'disableButton':form.invalid}">Sign In</button>
-  </form>
-  <div class="links">
-    <a href="#" id="ForgotPassword">Forgot Password</a>
-  </div>  
-</div>
-</div> -->

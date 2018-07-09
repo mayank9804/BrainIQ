@@ -1,14 +1,17 @@
 <shared-navbar></shared-navbar>
 <shared-sidebar></shared-sidebar>
+<div class="overlay" *ngIf='loading'></div>
+<img class="loader-spinner" *ngIf='loading' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/loader-spinner.png" />
 <div class="content-box">
     <div class="studentBackground">
         <div class="heading">
             <h1>“If you hear a voice within you say ‘you cannot paint,’ then by all means paint, and that voice will be silenced.”</h1>
             <p> – Vincent Van Gogh</p>
         </div>
+        
         <div class="statusContainer">
-            
             <router-outlet></router-outlet>
+            <router-outlet name="bookmarks"></router-outlet>
         </div>
     </div>
 </div>
