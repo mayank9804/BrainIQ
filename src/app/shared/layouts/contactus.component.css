@@ -1,3 +1,68 @@
-p{
+*{
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container-fluid .row .heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid .row .heading h1{
+    font-family: 'Asap', sans-serif;
+    font-size: 48px;
+    padding: 35px;
+    background: linear-gradient(#F96816,#EA1879);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container-fluid .row .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid .row.customerSupportRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid .row .customerSupport{
+    background-color:#383838;
+    display: block;
     text-align: center;
+    width: 80%;
+    
+}
+.container-fluid .row .customerSupport h2{
+    font-size: 36px;
+    background: linear-gradient(#F96816,#EA1879);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Asap', sans-serif;
+    
+}
+.container-fluid .row .customerSupport a button{
+    padding: 10px;
+    margin-top: 35px; 
+    margin-bottom:35px;
+    background: linear-gradient(#F96816,#EA1879);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+      
+}
+.container-fluid .row.devContact{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: linear-gradient(#F96816,#EA1879);
+    color: white;
+    opacity: 0.8;
+}
+.container-fluid .row .devContact1{
+    
+    text-align: center; 
+}
+.container-fluid .row .devContact2{
+    
+    text-align: center; 
 }
