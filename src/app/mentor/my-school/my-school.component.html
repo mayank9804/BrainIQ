@@ -1,55 +1,16 @@
 <div class="mySchool">
-    <h2>You made this place...</h2>
-    <div class="row categoryContainer">
-      <h2>Javascript</h2>
-      <div class="col-xs-4 quiz-box">
-        <img src="" alt="">
-        <h2>Quiz 1</h2>
-        <p>Level: Easy</p>
-        <a href="#">Delete</a>
-        <a href="#">Edit</a>
-      </div>
-      <div class="col-xs-4 quiz-box">
-        <img src="" alt="">
-        <h2>Quiz 2</h2>
-        <p>Level: Medium</p>
-        <a href="#">Delete</a>
-        <a href="#">Edit</a>
-      </div>
-      <div class="col-xs-4 quiz-box">
-        <img src="" alt="">
-        <h2>Quiz 3</h2>
-        <p>Level: Hard</p>
-        <a href="#">Delete</a>
-        <a href="#">Edit</a>
-      </div>
-      
+  <h2>You made this place...</h2>
+  <h2 *ngIf='myquizzes.length==0'>You have not published any quiz!</h2>
+  <div class="row categoryContainer">
+    <div class="col-xs-12 col-sm-4 quiz-box" *ngFor='let myquiz of myquizzes'>
+      <h2>{{myquiz.category.name}}</h2>
+      <hr>
+      <h2>{{myquiz.name}}</h2>
+      <p>Level: {{myquiz.level}}</p>
+      <p>{{myquiz.description}}</p>
+      <hr>
+      <a (click)='deleteQuiz(myquiz._id);'>Delete</a>
+      <a href="#">View</a>
     </div>
-    <div class="row categoryContainer">
-        <h2>Python</h2>
-        <div class="col-xs-4 quiz-box">
-          <img src="" alt="">
-          <h2>Quiz 1</h2>
-          <p>Level: Easy</p>
-          <a href="#">Delete</a>
-          <a href="#">Edit</a>
-        </div>
-
-        <div class="col-xs-4 quiz-box">
-          <img src="" alt="">
-          <h2>Quiz 2</h2>
-          <p>Level: Medium</p>
-          <a href="#">Delete</a>
-          <a href="#">Edit</a>
-        </div>
-        
-        <div class="col-xs-4 quiz-box">
-          <img src="" alt="">
-          <h2>Quiz 3</h2>
-          <p>Level: Hard</p>
-          <a href="#">Delete</a>
-          <a href="#">Edit</a>
-        </div>
-        
-      </div>
   </div>
+</div>

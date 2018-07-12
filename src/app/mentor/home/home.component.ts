@@ -34,7 +34,9 @@ export class HomeComponent implements OnInit {
   getStatus(){
     this._mentorGeneralService.getPosts().subscribe(res=>{
       this.myPosts = res.posts;
-      
+      this.myPosts.map(e=>{
+        e.createdDate = e.createdDate.split('T')[0];
+      })
     },err=>{
       console.log(err);
     },()=>{

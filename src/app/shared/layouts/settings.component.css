@@ -19,13 +19,16 @@
     width: 60%;
     margin: 0 auto;
 }
+.profile form h2{
+    text-align: center;
+}
 .profile form label{
     font-size: 16px;
     display: block;
     margin-top:2%;
 }
 .profile form input{
-    width:80%;
+    width:100%;
     color: #181818;
     padding: 10px;
     border: none;
@@ -33,10 +36,10 @@
     border-radius: 3px;
 }
 .profile .form-settings{
-    margin-top:5%;
+    margin-top:100px;
 }
 .profile form button{
-    display: inline;
+    display: block;
     background: linear-gradient(to left,#EA1879,#EF5133);;
     border: none;
     outline: none;
@@ -45,7 +48,7 @@
     margin-left: 2%;
 }
 .profile .seperator{
-    margin-top:10%;
+    margin-top:100px;
 }
 .profile form.passwordForm input{
     width: 100%;
@@ -58,4 +61,18 @@
 button[disabled]{
     cursor: not-allowed;
     opacity: 0.4;
+}
+
+
+
+.form-box{
+    display: flex;
+
+}
+
+@media (max-width:780px){
+    .profile form{
+        width: 100%;
+    }
+
 }

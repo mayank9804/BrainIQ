@@ -218,7 +218,7 @@ export class SignupComponent implements OnInit {
         this._route.navigateByUrl('/student/dashboard');
       });
 
-      await 
+      
     }
     else if (this.signupForm.get('role').value == 'mentor') {
       this.signupData.linkedinUrl = this.linkedinUrl;

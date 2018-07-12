@@ -13,6 +13,7 @@
 .signupPage .wrapper{
     width:40%;
     /* background-color: brown; */
+    padding: 20px;
 }
 .signupPage .help-block{
     font-size: 15px;

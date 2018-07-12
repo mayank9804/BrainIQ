@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, Event, NavigationStart, NavigationCancel, NavigationError, NavigationEnd, RoutesRecognized } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
-import { Observable } from 'rxjs/Observable';
-
 import { AuthService } from '../core/auth.service';
-
 import { CoreService } from '../core/core.service';
 import { debounceTime } from 'rxjs/operators';
 import { trigger, state, transition, style, animate } from '@angular/animations';
@@ -15,8 +12,8 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   animations: [
 
     trigger('inputEntry', [
-      state('in',style({transform:'translateY(0)',opacity:1})),
-      transition('void => *',[
+      state('in', style({ transform: 'translateY(0)', opacity: 1 })),
+      transition('void => *', [
         style({ transform: 'translateY(-20%)', opacity: 0 }),
         animate('500ms ease-out')
       ])
@@ -29,13 +26,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   userMessage: string;
   passwordMessage: string;
-  loading:boolean=false;
+  loading: boolean = false;
   loginData = {};
-  errDisplay: any;;
-  
+  errDisplay: any;
+
 
   errMessage: string;
-  
+
   constructor(private _route: Router, private _authService: AuthService, private _coreService: CoreService, private fb: FormBuilder) { }
 
 
@@ -86,10 +83,13 @@ export class LoginComponent implements OnInit {
     Object.keys(data).map(key => {
       this.loginData[key] = data[key];
     });
-    this.loading=true;
+
+
+    this.loading = true;
+
     this._authService.login(this.loginData).subscribe(
-      res => { 
-        this.loading=false;
+      res => {
+        this.loading = false;
       },
       err => {
         console.log(err);
@@ -99,17 +99,17 @@ export class LoginComponent implements OnInit {
         else {
           this.errMessage = "Something is quite not right!";
         }
-        this.loading=false;
+        this.loading = false;
       },
       () => {
-        this.loading=false;
+        this.loading = false;
         if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
           this._route.navigate(['/student/dashboard']);
         }
         else if (this._authService.whichRole().toLocaleLowerCase() == 'ismentor') {
           this._route.navigate(['/mentor/dashboard']);
         }
-      }
+      });
     }
 }
 

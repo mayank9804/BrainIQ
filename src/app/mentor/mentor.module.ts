@@ -8,10 +8,11 @@ import { NewRequestsComponent } from './new-requests/new-requests.component';
 import { SharedModule } from '../shared/shared.module';
 import { MentorComponent } from './mentor.component';
 import { MentorRoutingModule } from './mentor-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule,SharedModule,MentorRoutingModule
+    CommonModule,SharedModule,MentorRoutingModule,ReactiveFormsModule
   ],
   declarations: [
 

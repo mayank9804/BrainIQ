@@ -1,13 +1,14 @@
 <div class="myMentors">
     <h2 class="tag-line">Your Mentors</h2>
+    <h3 *ngIf='myMentors.length==0'>You have not subscribed to any mentors</h3>
     <div class="row mentorContainer">
+        
         <div *ngFor='let mentor of myMentors'>
-            <div class="col-xs-4 mentor-box">
-                <img src="" alt="">
+            <div class="col-xs-12 col-sm-4 mentor-box">
+                
                 <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
                 <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
-                <p>{{mentor.email}}</p>
-                <p>{{mentor.linkedinUrl }}</p>
+                <hr>
                 <a (click)='unSubscribeMentor(mentor.username);'>Unubscribe</a>
             </div>
         </div>
@@ -16,12 +17,11 @@
     <h2 class="tag-line">Browse Mentors</h2>
     <div *ngIf='allMentors && allMentors.length>0' class="row mentorContainer">
         <div *ngFor='let mentor of allMentors'>
-            <div class="col-xs-4 mentor-box">
-                <img src="" alt="">
+            <div class="col-xs-12 col-sm-4 mentor-box">
+                
                 <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
                 <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
-                <p>{{mentor.email}}</p>
-                <p>{{mentor.linkedinUrl }}</p>
+                <hr>
                 <a (click)='subscribeMentor(mentor.username);'>Subscribe</a>
             </div>
         </div>

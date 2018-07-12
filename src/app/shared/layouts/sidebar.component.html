@@ -2,7 +2,8 @@
   <div class="root-sidebar" [@sideBar]='state' (mouseenter) ="sidebar()" (mouseleave) ="sidebar()">
     <div class="root-item">
         <i class="fa fa-home fa-2x" aria-hidden="true"></i>
-        <p [ngClass]="{'active':state=='hovered'}">BrainIQ</p>
+        <p *ngIf='isStudent();' [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/dashboard']">Brainees</a></p>
+        <p *ngIf='isMentor();' [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/dashboard']">Brainees</a></p>
     </div>
     <div *ngIf='isStudent();'>
       <div class="item">

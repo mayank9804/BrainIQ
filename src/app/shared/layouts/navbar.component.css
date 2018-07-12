@@ -114,6 +114,7 @@
 }
 
 .navbar-right .box{ 
+
     border-left: 1px solid #181818;
 }
 
@@ -153,7 +154,7 @@
     content: '';
     position: absolute;
     top: -6px;
-    left:140px;
+    right:8px;
     border-right: 7px solid transparent;
     border-bottom: 7px solid #ccc;
     border-left: 7px solid transparent;

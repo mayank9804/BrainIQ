@@ -1,35 +1,55 @@
-
-
-
 <!-- Navbar Starts -->
-<nav class="navbar navbar-fixed-top" [ngClass]="{'navbar-change':navChanger}" >
-    <div class="container navbar-fluid ">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <button class="logo">LOGO</button>
-            
+<nav class="navbar-own" [ngClass]="{'navbar-change':navChanger}">
+    <div class="container-fluid ">
+        <div class="header">
+
+            <div class="left">
+                <img src="../../assets/img//logo.png" class="logo" alt="">
+            </div>
+
+            <div class="right">
+                <ul>
+
+                    <li class="dropdown big-screen">
+                        <a href="#">Categories</a>
+                        <i class="fa fa-angle-down" style="color:white;"></i>
+                    </li>
+
+                    <li class="loginbtn btndirective big-screen">
+                        <a [routerLink]="['/login']">Login</a>
+                    </li>
+
+                    <li class="btndirective big-screen">
+                        <a class="signup" [routerLink]="['/signup']">Signup</a>
+                    </li>
+
+                    <li class="toggle" (click)='toggleNavbar();'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
         </div>
-                  
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="#">Categories</a><i class="fa fa-angle-down" style="color:white;"></i></li>
+        <div [@displayResNavbar]='toggleState' [ngClass]="{'dropdownResponsive':toggleNavbarVar,'displayNone':!toggleNavbarVar}">
+            <ul>
+                <li>
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+                <li>
+                    <a class="signup" [routerLink]="['/signup']">Signup</a>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="loginbtn"><a [routerLink]="['/login']">Login</a></li>
-                <li><a href="#" class="signup" [routerLink]="['/signup']">Signup</a></li>  
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 <!-- Navbar Ends -->
-<!-- <button data-toggle="collapse" data-target="#demo">Collapsible</button> -->
 
 
 <!-- Hero Image Starts -->
@@ -37,10 +57,9 @@
     <div class="container image-container">
         <div class="hero-text">
             <h1>Know? Why don't you show?</h1>
-            <!-- <a [routerLink]="['/login']">Login</a> -->
-            <!-- <p>Explore more!</p> -->
-            <button>Explore More</button>
-            
+
+            <button [routerLink]="['/signup']">Explore More</button>
+
         </div>
     </div>
 </section>
@@ -52,82 +71,61 @@
     <div class="container-fluid">
         <!-- Categories Start -->
         <div id="demo" class="collapse">
-Lorem ipsum dolor text....
-</div>
-<!-- Trigger the modal with a button -->
-<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-<!-- Modal -->
-<!-- <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog"> -->
-
-    <!-- Modal content-->
-    <!-- <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div> -->
+            Lorem ipsum dolor text....
+        </div>
 
         <div class="categories">
             <div class="row">
-                <div class="col-xs-4 left">
-                    <h2>Analyze your <br><span class="capitalize">skills</span></h2>
-                    <p>With quality quizzes from mentors all over the globe
-                        see where do you stand? 
+                <div class="col-md-4 col-xs-12 left">
+                    <h2>Analyze your
+                        <br>
+                        <span class="capitalize">skills</span>
+                    </h2>
+                    <p>With quality quizzes from mentors all over the globe see where do you stand?
                     </p>
                 </div>
-                <div class="col-xs-8">
+                <div class="col-md-8 col-xs-12">
                     <div class="category-box-container">
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Javascript</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: Abhay Singh</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Python</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: Deborah Korata</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Java</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: Joe Eames</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Angular</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: David Malan</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Node</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: Peter Vogh</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>C++</h2>
-                            <p>Mentor: XYZ</p>
+                            <p>Mentor: Ian Bell</p>
                         </div>
-                        <div class="category-box">
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>C</h2>
-                            <p>Mentor: XYZ</p>
-                        </div> 
-                        <div class="category-box">
+                            <p>Mentor: John Gogh</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
                             <img src="" alt="">
                             <h2>Bash</h2>
-                            <p>Mentor: XYZ</p>
-                        </div>    
+                            <p>Mentor: Neil Borgh</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,47 +135,49 @@ Lorem ipsum dolor text....
 
         <!-- Details Start -->
         <div class="details">
+
             <div class="row">
-                <div class="roles-sections student" [ngClass]="{'col-xs-5':studentHover!=true && teacherHovered!=true,'col-xs-9':studentHover==true && teacherHovered==false,'col-xs-2':studentHover==false && teacherHovered==true}" (mouseover) ="rolesHovered($event)"
-                >
+                <div class="roles-sections student col-xs-12" [ngClass]="{'col-md-5':studentHover!=true && teacherHovered!=true,'col-md-9':studentHover==true && teacherHovered==false,'col-md-2':studentHover==false && teacherHovered==true}"
+                    (mouseover)="rolesHovered($event)">
                     <div class="detail-bar">
                         <div class="sample"></div>
                         <h2>Student</h2>
                         <p>Gear up for your future with us!</p>
                         <div class="row detailedProduct">
-                            <div class="col-xs-4">
+                            <div class="col-xs-12 col-md-4">
                                 <h2>Quizzes</h2>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Professional Content from Professional mentors</p>
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-xs-12 col-md-4">
                                 <h2>Analytics</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Get detailed analytics for quizzes you attend</p>
                             </div>
-                            <div class="col-xs-4">
-                                <h2>Live Mentoring</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Feeds</h2>
+                                <p>Live discussion in feeds with mentors</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="roles-sections teacher" [ngClass]="{'col-xs-5 col-xs-offset-2':studentHover!=true && teacherHovered!=true,'col-xs-2':studentHover==true && teacherHovered==false,'col-xs-9':studentHover!=true && teacherHovered==true, 'col-xs-offset-1':(studentHover==true && teacherHovered==false )|| (studentHover!=true && teacherHovered==true)}" 
-                (mouseover) ="rolesHovered($event)">
+
+                <div class="roles-sections teacher col-xs-12" [ngClass]="{'col-md-5 col-md-offset-2':studentHover!=true && teacherHovered!=true,'col-md-2':studentHover==true && teacherHovered==false,'col-md-9':studentHover!=true && teacherHovered==true, 'col-md-offset-1':(studentHover==true && teacherHovered==false )|| (studentHover!=true && teacherHovered==true)}"
+                    (mouseover)="rolesHovered($event)">
                     <div class="detail-bar">
                         <div class="sample"></div>
                         <h2>Teacher</h2>
                         <p>Help us gearing youth's future!</p>
                         <div class="row detailedProduct">
-                            <div class="col-xs-4">
+                            <div class="col-xs-12 col-md-4">
                                 <h2>Strong Profile</h2>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Grow your profile with student's reviews</p>
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-xs-12 col-md-4">
                                 <h2>Networking</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Grow your connections with other peers</p>
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-xs-12 col-md-4">
                                 <h2>Claims/Rewards</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Claims/Rewards for best mentors</p>
                             </div>
                         </div>
                     </div>
@@ -186,7 +186,7 @@ Lorem ipsum dolor text....
         </div>
         <!-- Detail ends -->
 
-        
+
 
     </div>
 </section>
@@ -195,14 +195,22 @@ Lorem ipsum dolor text....
 <!-- What is Portal starts-->
 <div class="portal-what">
     <div class="row">
-        <div class="col-xs-6 left">
-            <h2>What is our <span class="capitalize">portal</span></h2>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab non tempora hic recusandae perspiciatis nam consequatur et eveniet voluptatibus quisquam sed ipsa autem voluptatum harum aperiam quod, est suscipit debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odit aliquid amet, laborum doloremque temporibus eos, eius hic dicta iure tenetur rerum qui sapiente similique adipisci quaerat ut minima ea. </p>
+        <div class="col-xs-12 col-sm-8 left">
+            <h2>What is our
+                <span class="capitalize">portal</span>
+            </h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab non tempora hic recusandae perspiciatis nam consequatur
+                et eveniet voluptatibus quisquam sed ipsa autem voluptatum harum aperiam quod, est suscipit debitis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odit aliquid amet, laborum doloremque temporibus
+                eos, eius hic dicta iure tenetur rerum qui sapiente similique adipisci quaerat ut minima ea. </p>
         </div>
-        <div class="col-xs-6 right">
-            <img src="../../assets/img/monitor.png" class="monitor" alt="">
+        <div class="col-xs-12 col-sm-4 right">
+            <div style="position: relative;">
+                <img src="../../assets/img/monitor.png" class="monitor" alt="">
+                <img src="../../assets/img/logoinmac.png" alt="Logo in mac" class="logo-in-mac">
+            </div>
         </div>
-    </div>            
+    </div>
 </div>
 <!-- What is Portal ends -->
 
@@ -211,27 +219,46 @@ Lorem ipsum dolor text....
 <div class="downHandler">
     <footer>
         <div class="row footer-body">
-            <div class="col-xs-4 bars">
+            <div class="col-xs-12  col-sm-4 bars">
                 <p>Social Connectivity</p>
                 <ul class="list list-1">
-                    <li>Instagram</li>
-                    <li>Facebook</li>
-                    <li>Youtube</li>
-                    <li>LinkedIn</li>
-                    <li>Slack</li>
+                    <div class="col-xs-6 col-sm-12 list-right">
+                        <li>
+                            <a href="https://www.instagram.com/brainees"> Instagram</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/brainees"> Facebook</a>
+                        </li>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 list-left">
+                        <li>
+                            <a href="https://www.linkedin.com/brainees"> LinkedIn </a>
+                        </li>
+                        <li>
+                            <a href="https://www.slack.com/brainees">Slack</a>
+                        </li>
+                    </div>
                 </ul>
             </div>
-            <div class="col-xs-4 bars">
+
+            <div class="col-xs-12 col-sm-4 bars">
                 <p>Contact Us</p>
                 <ul class="list list-1">
-                    <li>xyz@gmail.com</li>
-                    <li>+91-9814670363</li>
+                    <li>
+                        <a href="mailto:brainees@gmail.com"> brainees@gmail.com </a>
+                    </li>
+                    <li>
+                        <a href="#">+91-9814670363</a>
+                    </li>
                 </ul>
             </div>
-            <div class="col-xs-4 bars">
+
+            <div class="col-xs-12 col-sm-4 bars">
                 <p>Reach us</p>
                 <ul class="list list-1">
                     <li>Phagwara, 144401, Punjab</li>
+                    <li>Lovely Professional University</li>
+                    <li>India</li>
                 </ul>
             </div>
         </div>
@@ -240,17 +267,18 @@ Lorem ipsum dolor text....
 
     <!-- Copyright footer starts-->
     <div class="row copyright-footer">
-        <div class="col-xs-4 left">
+        <div class="col-xs-12 col-sm-4 left">
             <ul class="left-content">
                 <li>Site Map</li>
                 <li>Terms of use</li>
                 <li>Privacy Policy</li>
             </ul>
         </div>
-        <div class="col-xs-4 col-xs-offset-4 right">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-3 right">
             <p class="right-content">Copyright &copy; 2018| Project LPU|VenturePact</p>
         </div>
     </div>
-</div>
-<!-- Copyright footer ends -->
+    <!-- Copyright footer ends -->
 
+</div>
+<!-- downHandler ends -->

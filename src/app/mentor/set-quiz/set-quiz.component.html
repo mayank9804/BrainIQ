@@ -1,53 +1,79 @@
-<div class="setQuiz" *ngIf="!isSetQuiz">
-   
+<div class="setQuiz" *ngIf='!quizmode'>
+
   <div class="row quizRules">
-      <div class="col-xs-12 rules-box">
-        <h2>Rules</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit voluptatem blanditiis eum nobis nostrum, quis optio sint quia aspernatur earum pariatur sed est molestiae, animi atque mollitia placeat totam architecto?</p>
+    <div class="col-xs-12 rules-box">
+      <h2>Rules</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit voluptatem blanditiis eum nobis nostrum, quis optio
+        sint quia aspernatur earum pariatur sed est molestiae, animi atque mollitia placeat totam architecto?</p>
     </div>
   </div>
-  
-  <div class="setQuizBackground">    
-      <form action="" >
-          <input type="text" placeholder="Quiz Name">
-          <input type="text"placeholder="Category"><br>
-          <input type="radio" name="easy" value="easy" checked> Easy
-          <input type="radio" name="medium" value="medium" > Medium
-          <input type="radio" name="hard" value="hard" > Hard
-          <button (click)="giveSetQuizOption()">Set Quiz</button>
-      </form>  
+
+  <div class="setQuizIntro">
+    <form #questionformChild class="intro-form" [formGroup]='quizIntroForm' >
+      <input formControlName='quizName' name='quizName' type="text" autofocus placeholder="Quiz Name">
+      <p *ngIf='quizNameMessage'>{{quizNameMessage}}</p>
+      
+      <select formControlName='categoryName' name='categoryName'>
+        <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+        <option value="default">Select one from menu</option>
+      </select>
+
+      <p *ngIf='categoryNameMessage'>{{categoryNameMessage}}</p>
+      <textarea formControlName='description' name="description" id="description" placeholder="Add description"></textarea>
+      <p *ngIf='descriptionMessage'>{{descriptionMessage}}</p>
+      <br>
+      <div class="level">
+        <input formControlName='level' type="radio" name="level" value="easy"> Easy
+        <input formControlName='level' type="radio" name="level" value="medium"> Medium
+        <input formControlName='level' type="radio" name="level" value="hard"> Hard
+      </div>
+      <button type='button' [disabled]='quizIntroForm.invalid' (click)="setQuiz(quizIntroForm)">Set Quiz</button>
+    </form>
   </div>
+</div>
+
+<div class="questionContainer" *ngIf='quizmode'>
+  <h2>{{quizName}}</h2>
+  <h2>Question Number: {{questionIndex}}</h2>
+  <form class="question-form" [formGroup]='questionForm'>
+    <textarea formControlName='question' name="question" id="question" placeholder="What does Newton's 3rd law say?"></textarea>
+    <p *ngIf='questionMessage'>{{questionMessage}}</p>
+    <textarea formControlName='answerA' name="answerA" id="answerA" placeholder="pV=nRT"></textarea>
+    <p *ngIf='answerAMessage'>{{answerAMessage}}</p>
+    <textarea formControlName='answerB' name="answerB" id="answerB" placeholder="e=mc^2"></textarea>
+    <p *ngIf='answerBMessage'>{{answerBMessage}}</p>
+    <textarea formControlName='answerC' name="answerC" id="answerC" placeholder="e^(i*pi)=1"></textarea>
+    <p *ngIf='answerCMessage'>{{answerCMessage}}</p>
+    <textarea formControlName='answerD' name="answerD" id="answerD" placeholder="Action == Reaction"></textarea>
+    <p *ngIf='answerDMessage'>{{answerDMessage}}</p>
+    <hr>
+
+    <div class="tellAnswer">
+      <p>Please tell correct answer</p>
+      <input formControlName='correctOption' type="radio" name="correctOption" value="A"> A
+      <input formControlName='correctOption' type="radio" name="correctOption" value="B"> B
+      <input formControlName='correctOption' type="radio" name="correctOption" value="C"> C
+      <input formControlName='correctOption' type="radio" name="correctOption" value="D"> D
+    </div>
+    <button type='button' *ngIf='questionIndex>1' (click)="previous()">Back </button>
+    <button type='button' *ngIf='questionIndex<20' [disabled]='questionForm.invalid' (click)="next(questionForm)">Next </button>
+    <button type='button' *ngIf='questionIndex==20' [disabled]='questionForm.invalid' (click)="publish(questionForm)">Publish </button>
+    <button type='button' (click)="cancel()">Cancel </button>
+    <button type='button' [disabled]='questionForm.invalid' *ngIf='questionIndex>1' (click)="save(questionForm)">Save </button>
+  </form>
 
 </div>
 
-<div class="setQuestion" *ngIf = "isSetQuiz">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-      
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <textarea name="question" id="" cols="30" rows="10"></textarea>
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-          </div>
-      
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
+<div class="unpublished-quizzes" *ngIf='!quizmode'>
+    <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 unpublished-quiz" *ngFor='let quiz of unpublishedQuiz'>
+      <h2>{{quiz.name}}</h2>
+      <p>{{quiz.category.name}}</p>
+      <p>Questions left: {{20-quiz.questions.length}}</p>
+      <hr>
+      <a (click)='activateIncomplete(quiz)' *ngIf='20-quiz.questions.length>0'>Continue</a>
+      <a (click)='publishUnpublished(quiz._id);' *ngIf='20-quiz.questions.length==0'>Publish</a>
+    </div>
+  </div>
 </div>

@@ -1,10 +1,11 @@
 .content-box{
-    margin-top:60px;
+    margin-top:0px;
     margin-left:50px;
     height: 100%;
 }
 .teacherBackground{
     background-color: hsl(0, 0%, 21%);
+    margin-top:60px;
 }
 .teacherBackground *{
     font-family: 'Open Sans', sans-serif;
@@ -13,6 +14,7 @@
 }
 .teacherBackground{
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-attachment: fixed;
@@ -42,3 +44,65 @@
     max-width: 80%;
     margin: 5% auto;
 }
+app-responsive-navbar{
+    display: none;
+}
+@media (max-width:780px){
+    .content-box{
+        margin-left: 0px;
+    }
+    .teacherBackground .heading{
+        max-width: 100%;
+        padding: 30px;
+    } 
+    .teacherBackground .heading h1{
+        font-size: 30px;
+    }
+    .teacherBackground .heading p{
+        font-size: 25px;
+    }
+    app-responsive-navbar{
+        display: block;
+    }
+    shared-navbar{
+        display: none;
+    }
+    shared-sidebar{
+        display: none;
+    }
+
+}
+.overlay{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    z-index:1000;
+    cursor: not-allowed;
+}
+.loader-spinner {
+    position: fixed;
+    width: 100%;
+    max-width: 120px;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50%, -50% ); /* center */
+    -webkit-animation: spinLoader 600ms steps(12, end) infinite;
+            animation: spinLoader 600ms steps(12, end) infinite;
+            z-index: 1100;
+  }
+  
+  @-webkit-keyframes spinLoader {
+    from { transform: translate( -50%, -50% ) rotate(0turn); }
+    to { transform: translate( -50%, -50% ) rotate(1turn); }
+  }
+  
+  @keyframes spinLoader {
+    from { transform: translate( -50%, -50% ) rotate(0turn); }
+    to { transform: translate( -50%, -50% ) rotate(1turn); }
+  }
+  

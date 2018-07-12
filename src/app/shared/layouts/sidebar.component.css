@@ -8,7 +8,7 @@
     background-color: #222;
     color: #aaa;
     overflow: hidden;
-    transition: width .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: width .15s ease-in-out;
     
 }
 .sidebar.shadow{
@@ -38,7 +38,6 @@
 }
 .root-item>p{
     display: none;
-    color: 
 }
 .root-item>p.active{
     display: inline;
@@ -48,11 +47,13 @@
     letter-spacing: 2px;
     color: white;
 }
-
+.root-item p>a{
+    color: #fff;
+    text-decoration: none;
+}
 .item{
     padding-top:10px;
     padding-bottom:10px;
-    margin-top:5px;
     width: 200px;
     color: #aaa;
 }
