@@ -39,7 +39,8 @@ function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null 
 export class SignupComponent implements OnInit {
   //POST data sample model
   signupData = {
-    name: {}
+    name: {},
+    linkedinUrl: ""
   };
 
   //DOM Error renderer
@@ -49,7 +50,7 @@ export class SignupComponent implements OnInit {
   usernameMessage: String;
   passwordMessage: String;
   repasswordMessage: String;
-  // linkedinurlMessage: String;
+  linkedinurlMessage: String;
 
   //Root Form Group
   signupForm: FormGroup;
@@ -221,7 +222,7 @@ export class SignupComponent implements OnInit {
       
     }
     else if (this.signupForm.get('role').value == 'mentor') {
-      this.signupData.linkedinUrl = this.linkedinUrl;
+      this.signupData.linkedinUrl = this.signupForm.get("linkedinURl").value;
       await this._authService.registerMentor(this.signupData, () => {
         this._route.navigateByUrl('/mentor/dashboard');
       });

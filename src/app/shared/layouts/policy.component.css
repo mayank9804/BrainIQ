@@ -1,3 +1,56 @@
-p{
+*{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+.container-fluid .row .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: #F96816;
+      
+}
+.container-fluid .row .header h2{
+    font-family: 'Asap', sans-serif;    
+    font-size: 36px;
+} 
+
+.container-fluid .row .subheading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #EA1879;
+      
+}
+.container-fluid .row .subheading h4{
+    font-family: 'Asap', sans-serif;    
+    font-size: 24px;
+}
+.container-fluid .row .intro{
+    text-align: center;
+} 
+.container-fluid .row .intro p{
+    margin-top:5%;
+    margin-bottom:5%;  
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.container-fluid .row .tableOfContent a{
+    display: block;
+    margin-left:10%;
+    color: #F96816; 
+}
+.container-fluid .row .content{
+    float:right;
+    
+}
+.container-fluid .row .content h4{
+    font-family: 'Asap', sans-serif;
+    font-size: 24px;
+    color:#EA1879;
+}
+.container-fluid .row .content p{
+    margin-right:5%; 
 }

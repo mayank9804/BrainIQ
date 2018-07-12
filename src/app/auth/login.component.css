@@ -74,6 +74,7 @@ form input{
 form input.errorInput{
     border:0.5px solid red;
     transition: 0.3s ease-out;
+    background-color: antiquewhite;
 }
 .loginPage button{
     display: block;

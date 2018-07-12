@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router, Event, NavigationStart, NavigationCancel, NavigationError, NavigationEnd, RoutesRecognized } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
 import { AuthService } from '../core/auth.service';
 import { CoreService } from '../core/core.service';
