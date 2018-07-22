@@ -18,6 +18,7 @@ export class AdminInterfaceComponent {
 	}
 	
 	public getServerData(event){
+		// koi bhi backend call krna ho to coreservice m ek function likh
 		this.httpService.getdata(event,this.pageLimit).subscribe((response) =>{
 				if(response.error) { 
 					alert('No data fetched');

@@ -17,8 +17,15 @@ export class CoreService{
     )}
     
     public setLimit(page:Number,data:Number):any{
-		return this._http.post(`${this.BASE_URL}${page}`,{pageLimit:data}).pipe(
+		return this._http.post(`${this.BASE_URL}/paginate/students/${page}`,{pageLimit:data}).pipe(
             catchError(err=>throwError(err))
     )}
-    
+    // yha pr
+    // aur vo ek observable return krega
+    // ye slected part.pipe(
+          //   catchError(err=>throwError(err))
+          // )
+          // sbme common rhega
+  //this._http.(methodname)(get,post,put patch,delete)terko sirf get post ka hi jrurt pdega, abhi aj ka kam itna hi krna h ki data lekar aa display mar ek table m baki bad m mai dekh lunga
+  // ${this.BASE_URL} ye upar variable h /paginate/students
 }

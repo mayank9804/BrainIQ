@@ -37,11 +37,7 @@ function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null 
   ]
 })
 export class SignupComponent implements OnInit {
-  //POST data sample model
-  signupData = {
-    name: {},
-    linkedinUrl: ""
-  };
+
 
   //DOM Error renderer
   emailMessage: String;
@@ -211,19 +207,17 @@ export class SignupComponent implements OnInit {
 
 
   async signup(data) {
-    Object.keys(data).map(key=>{
-      data[key.toLocaleLowerCase()]
-    })
+
     if (this.signupForm.get('role').value == 'student') {
-      await this._authService.registerStudent(this.signupData, () => {
+      await this._authService.registerStudent(data, () => {
         this._route.navigateByUrl('/student/dashboard');
       });
 
       
     }
     else if (this.signupForm.get('role').value == 'mentor') {
-      this.signupData.linkedinUrl = this.signupForm.get("linkedinURl").value;
-      await this._authService.registerMentor(this.signupData, () => {
+      data.linkedinUrl = this.signupForm.get("linkedinUrl").value;
+      await this._authService.registerMentor(data, () => {
         this._route.navigateByUrl('/mentor/dashboard');
       });
 
