@@ -1,0 +1,31 @@
+<div class="myMentors">
+    <h2 class="tag-line">Your Mentors</h2>
+    <h3 *ngIf='myMentors.length==0'>You have not subscribed to any mentors</h3>
+    <div class="row mentorContainer">
+        
+        <div *ngFor='let mentor of myMentors'>
+            <div class="col-xs-12 col-sm-4 mentor-box">
+                
+                <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
+                <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
+                <hr>
+                <a (click)='unSubscribeMentor(mentor.username);'>Unubscribe</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="tag-line">Browse Mentors</h2>
+    <div *ngIf='allMentors && allMentors.length>0' class="row mentorContainer">
+        <div *ngFor='let mentor of allMentors'>
+            <div class="col-xs-12 col-sm-4 mentor-box">
+                
+                <h2>{{mentor.name.firstname}}&nbsp;{{mentor.name.lastname}}</h2>
+                <a [routerLink]="['/student/mentor',mentor._id]">{{mentor.username}}</a>
+                <hr>
+                <a (click)='subscribeMentor(mentor.username);'>Subscribe</a>
+            </div>
+        </div>
+    </div>
+    <!-- <h1 *ngIf='(allMentors==null)'>No data available</h1>
+    <h1 *ngIf='(allMentors!=null && allMentors.length == 0)'>Loading........</h1> -->
+</div>

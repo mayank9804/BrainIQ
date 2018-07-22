@@ -1,0 +1,19 @@
+<div class="newRequests">
+  <h2>New Requests</h2>
+  <div class="row newStudentContainer">
+    <h3 *ngIf='newRequestStudent.length==0'>
+      No new Requests!
+    </h3>
+    <div *ngFor='let newRequest of newRequestStudent'>
+      <div class="col-xs-12 col-sm-4 new-student-box">
+          <img src="" alt="">
+          <h2>{{newRequest.name.firstname}}&nbsp;{{newRequest.name.lastname}}</h2>
+          <p>{{newRequest.email}}</p>
+          <!-- Public profile of  -->
+          <a [routerLink]="['/mentor/student',newRequest._id]">{{newRequest.username}}</a>
+          <hr>
+          <a (click)='approveRequest(newRequest)'>Approve</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="overlay" *ngIf='loading'></div>
+<div class="loginPage">
+  <div class="wrapper">
+
+    <div class="header">
+      <a [routerLink]="['/']"> <img src="../../assets/img/logo.png" alt="Brainees! Get your skill IQ."></a>
+      <a [routerLink]="['/signup']" id="needAcc">Need an account?</a>
+    </div>
+
+
+    <form [formGroup]="loginForm" [@inputEntry]='in'>
+
+      <div class="form-group">
+        <input formControlName="username" type="text" name="username" placeholder="Username" [ngClass]="{'errorInput':userMessage }"
+          autocomplete="off">
+      </div>
+      <span class="help-block" *ngIf="userMessage">{{userMessage}}</span>
+
+      <div class="form-group">
+        <input formControlName="password" type="password" name="password" placeholder="Password" [ngClass]="{'errorInput':passwordMessage}">
+      </div>
+      <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
+      <h4 *ngIf='errMessage'>{{errMessage}}</h4>
+      <button type="submit" #loginbtn (click)="login(loginForm.value)" [disabled]="loginForm.invalid || loading" [ngClass]="{'disableButton':loginForm.invalid || loading}">Sign In</button>
+      <div class="links">
+        <!-- Yet to be done -->
+        <a href="#" id="ForgotPassword">Forgot Password</a>
+      </div>
+    </form>
+
+
+  </div>
+</div>

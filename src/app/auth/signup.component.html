@@ -1,0 +1,78 @@
+<div class="signupPage">
+  <div class="wrapper">
+
+    <div class="header">
+      <a [routerLink]="['/']"> <img src="../../assets/img/logo.png" alt="Brainees! Get your skill IQ."></a>
+      <a [routerLink]="['/login']" id="needAcc">Already have an account?</a>
+    </div>
+    
+    <!-- <div *ngIf='res'><h1>Some error occured</h1></div> -->
+
+    <form [formGroup]="signupForm" [@inputEntry]='in'>
+
+      <div class="form-group">
+        <input formControlName="emailId" class="inp" type="email" name="Email" placeholder="Email" autocomplete="off" [ngClass]="{'errorInput':emailMessage}">
+      </div>
+      <span class="help-block" *ngIf="emailMessage">{{emailMessage}}</span>
+
+      <div formGroupName="nameGroup">
+        <div class="form-group">
+          <input formControlName="firstName" type="text" class="inp" name="firstname" placeholder="First Name" autocomplete="off" [ngClass]="{'errorInput':firstnameMessage}">
+        </div>
+        <span class="help-block" *ngIf="firstnameMessage">{{firstnameMessage}}</span>
+
+        <div class="form-group">
+          <input formControlName="lastName" type="text" class="inp" name="lastname" placeholder="Last Name" autocomplete="off" [ngClass]="{'errorInput':lastnameMessage}">
+        </div>
+        <span class="help-block" *ngIf="lastnameMessage">{{lastnameMessage}}</span>
+      </div>
+
+      <div class="username-box form-group">
+        <input formControlName="userName" class="inp" type="text" name="userName" placeholder="User Name" autocomplete="off" [ngClass]="{'errorInput':usernameMessage || signupForm.get('userName').errors?.taken}">
+        <span class="help-block" *ngIf="usernameMessage">{{usernameMessage}}</span>
+        <span class="help-block" *ngIf="signupForm.get('userName').errors?.taken">This username is already taken!</span>
+        <!-- If i plan to perform async validation for availibility of username -->
+        <i class="fa fa-check" [ngClass]="{'visible':!(signupForm.get('userName').errors) && !signupForm.get('userName').errors?.match}"></i>
+      </div>
+
+      <!-- Nested Group for Password! Cross Validation for same passwords is required! -->
+      <div formGroupName="passwordGroup">
+
+        <div class="form-group">
+          <input formControlName="password" class="inp" type="password" name="password" placeholder="Password" autocomplete="off" [ngClass]="{'errorInput':passwordMessage || signupForm.get('passwordGroup').errors?.match}">
+          <span class="help-block" *ngIf="passwordMessage">{{passwordMessage}}</span>
+        </div>
+
+        <div class="form-group" [ngClass]="{'errorInput': signupForm.get('passwordGroup').errors }">
+          <input formControlName="rePassword"  class="inp" type="password" name="rePassword" autocomplete="off" placeholder="Confirm Password" [ngClass]="{'errorInput':repasswordMessage || signupForm.get('passwordGroup').errors?.match}">
+          <span class="help-block" *ngIf="repasswordMessage">{{repasswordMessage}}</span>
+
+          <!-- Does cross validation in this nested form group -->
+          <span *ngIf='!repasswordMessage'>
+            <span class="help-block" *ngIf="signupForm.get('passwordGroup').errors?.match">Passwords do not match!</span>
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="rad">
+        <input formControlName="role" type="radio" name="role" value="student">Student
+        <input formControlName="role" type="radio" name="role" value="mentor">Mentor
+        <!-- <span class="help-block" *ngIf="roleMessage">{{roleMessage}}</span> -->
+      </div>
+
+      <div class="form-group" *ngIf="signupForm.get('role')?.value=='mentor'">
+        <input formControlName="linkedinUrl" class="inp" type="text" name="linkedinUrl" placeholder="LinkedIn url" [ngClass]="{'errorInput':linkedinurlMessage}"
+          autocomplete="off">
+        <span class="help-block" *ngIf="linkedinurlMessage">{{linkedinurlMessage}}</span>
+      </div>
+
+
+
+      <button (click)="signup(signupForm.value)" [disabled]="signupForm.invalid " [ngClass]="{'disableButton':signupForm.invalid}">Sign Up</button>
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,42 @@
+*{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    color: #FFF;
+}
+.policy{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    
+}
+.container-fluid .row .header{
+    text-align: center;
+}
+.container-fluid .row .header h2{
+    font-family: 'Asap', sans-serif;    
+    font-size: 36px;
+} 
+
+.container-fluid .row .subheading{
+    text-align: center;       
+}
+.container-fluid .row .subheading h4{
+    font-family: 'Asap', sans-serif;    
+    font-size: 24px;
+}
+.container-fluid .row .intro{
+    text-align: center;
+} 
+.container-fluid .row .intro p{
+    color: #aaa;
+}
+
+.container-fluid .row .content h4{
+    font-family: 'Asap', sans-serif;
+    font-size: 24px;
+    
+}
+.container-fluid .row .content p{
+    
+    color: #aaa;
+}

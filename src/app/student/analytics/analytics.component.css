@@ -1,0 +1,108 @@
+.analytics *{
+    text-align: center;
+}
+
+/* .analytics .graphRenderer{
+    display: none;
+}
+.analytics .graphRenderer img{
+    width: 100%;
+    border-radius: 10px;
+    filter: blur(5px);
+    transition: 0.1s ease-in;
+}
+.analytics .graphRenderer img:hover{
+    filter: unset;
+    transition: 0.1s ease-out;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.7);
+} */
+.analytics h2{
+    margin-top:5%;
+    font-family: 'Asap',sans-serif;
+    font-size:32px;
+}
+.perQuizIq .quizIq{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:3%;
+    transition: 0.3s ease-in;
+    transform: scale(0.9);
+}
+.perQuizIq .quizIq .analyse-iq{
+    display: block;
+    margin: 5px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: linear-gradient(to left,#EA1879,#EF5133);
+}
+.perQuizIq .quizIq:hover{
+    cursor: pointer;
+    box-shadow:none;
+}
+.perQuizIq a{
+    text-decoration: none;
+    color: mediumturquoise;
+    display: block;
+    margin: 4px auto;
+}
+.analytics .perQuizIq{
+    margin-top:5%;
+}
+
+
+.analysis-window{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:3%;
+}
+.perQuestion{
+    margin-top:3%;
+}
+.perQuestion .question{
+    background-color: rgba(54, 54, 54,0.9);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    height: 150px;
+    padding: 3%;
+    border-bottom: 1px solid #756e6e69;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.perQuestion .option{
+    background-color: rgba(62, 206, 106, 0.6) !important;
+    color: azure;
+    height: 70px;
+    padding: 3%;
+    border-bottom: 1px solid #373636 !important;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+    
+}
+.perQuestion .optionD{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.perQuestion .question h2{
+    text-align: left;
+}
+.perQuestion .option p{
+    text-align: left;
+}
+
+.perQuestion .correctResponse{
+    height: 70px;
+    padding: 3%;
+}
+.perQuestion .correctResponse p{
+    text-align: right;
+}
+.right-answer{
+    background-color:rgb(160, 156, 142);
+    color: #000;
+    height: 75px;
+    padding: 3%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+}

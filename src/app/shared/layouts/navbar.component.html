@@ -1,0 +1,53 @@
+<div class="searchPortal" *ngIf='searchactivated'>
+
+  <div class="searchBox">
+    <i class="btn-cross fas fa-times" (click)="activateSearch(false)"></i>
+    <input type="text" placeholder="Search here" class="searchbar" autofocus>
+  </div>
+
+
+</div>
+<div class="navbar">
+  <nav class="navbar-left">
+    <input type="text" (click)="activateSearch(true);">
+    <i class="fa fa-2x fa-search"></i>
+  </nav>
+  <nav class="navbar-right">
+    <div class="wrapper">
+      <a [routerLink]="['/student/username']" *ngIf='isStudent();'>
+        <div class="item">{{profileName}}</div>
+      </a>
+      <a [routerLink]="['/mentor/username']" *ngIf='isMentor();'>
+        <div class="item">{{profileName}}</div>
+      </a>
+      <div class="item box">
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        <div class="drop-down-item">
+          <ul>
+            <li>
+              <a [routerLink]="['/student/privacy-policy']" *ngIf='isStudent();'>Privacy Policy</a>
+            </li>
+            <li>
+              <a [routerLink]="['/student/terms-of-service']" *ngIf='isStudent();'>Terms of Service</a>
+            </li>
+            <li>
+              <a [routerLink]="['/student/contact-us']" *ngIf='isStudent();'>Contact us</a>
+            </li>
+            <li>
+              <a [routerLink]="['/mentor/privacy-policy']" *ngIf='isMentor();'>Privacy Policy</a>
+            </li>
+            <li>
+              <a [routerLink]="['/mentor/terms-of-service']" *ngIf='isMentor();'>Terms of Service</a>
+            </li>
+            <li>
+              <a [routerLink]="['/mentor/contact-us']" *ngIf='isMentor();'>Contact us</a>
+            </li>
+            <hr style="margin-top:10px;">
+            <li id="logout" (click)='logout()' [routerLink]="['/']"> Logout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</div>

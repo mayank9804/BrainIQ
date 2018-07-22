@@ -1,0 +1,37 @@
+<div class="mySchool">
+  <h2>You made this place...</h2>
+  <h2 *ngIf='myquizzes.length==0'>You have not published any quiz!</h2>
+  <div class="row categoryContainer">
+    <div class="col-xs-12 col-sm-4 quiz-box" *ngFor='let myquiz of myquizzes'>
+      <h2>{{myquiz.category.name}}</h2>
+      <hr>
+      <h2>{{myquiz.name}}</h2>
+      <p>Level: {{myquiz.level}}</p>
+      <p>{{myquiz.description}}</p>
+      <hr>
+      <a (click)='deleteQuiz(myquiz._id);'>Delete</a>
+      <a (click)='viewQuiz(myquiz._id)'>View</a>
+    </div>
+  </div>
+
+
+  <div class="view-quiz" *ngIf='viewmode'>
+    <div class="row perQuestion" *ngFor='let ques of questions'>
+      <div class="col-xs-12 question">
+        <h2>{{ques.questionText}}</h2>
+      </div>
+      <div class="col-xs-12 optionA" [ngClass]="{'option':!ques.answers[0].isCorrect, 'right-answer':ques.answers[0].isCorrect}">
+        <p>{{ques.answers[0].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionB" [ngClass]="{'option':!ques.answers[1].isCorrect, 'right-answer':ques.answers[1].isCorrect}">
+        <p>{{ques.answers[1].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionC" [ngClass]="{'option':!ques.answers[2].isCorrect, 'right-answer':ques.answers[2].isCorrect}">
+        <p>{{ques.answers[2].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionD" [ngClass]="{'option':!ques.answers[3].isCorrect, 'right-answer':ques.answers[3].isCorrect}">
+        <p>{{ques.answers[3].answerText}}</p>
+      </div>
+    </div>
+  </div>
+</div>

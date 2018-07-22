@@ -1,0 +1,73 @@
+.mySchool *{
+    text-align: center;
+}
+.quiz-box{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:3%;
+    transition: 0.3s ease-in;
+    transform: scale(0.9);
+}
+
+.quiz-box:hover{
+    cursor: pointer;
+    box-shadow:none;
+}
+.quiz-box a{
+    text-decoration: none;
+    color: mediumturquoise;
+    margin:5%;
+}
+
+.mySchool .categoryContainer{
+    margin-top:5%;
+}
+/*  */
+.view-quiz{
+    background-color: rgba(54, 54, 54,0.6);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding:3%;
+}
+.perQuestion{
+    margin-top:3%;
+}
+.perQuestion .question{
+    background-color: rgba(54, 54, 54,0.9);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    height: 150px;
+    padding: 3%;
+    border-bottom: 1px solid #756e6e69;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.perQuestion .option{
+    background-color: rgba(62, 206, 106, 0.6) !important;
+    color: azure;
+    height: 70px;
+    padding: 3%;
+    border-bottom: 1px solid #373636 !important;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+    
+}
+.perQuestion .optionD{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.perQuestion .question h2{
+    text-align: left;
+}
+.perQuestion .option p{
+    text-align: left;
+}
+
+
+.right-answer{
+    background-color:rgb(160, 156, 142);
+    color: #000;
+    height: 75px;
+    padding: 3%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+}

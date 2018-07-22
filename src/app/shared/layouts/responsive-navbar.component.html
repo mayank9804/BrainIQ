@@ -1,0 +1,139 @@
+<div class="searchPortal" *ngIf='searchactivated'>
+
+  <div class="searchBox">
+    <i class="btn-cross" (click)="activateSearch(false)">X</i>
+    <input type="text" placeholder="Search here" class="searchbar" autofocus>
+  </div>
+
+
+</div>
+
+
+<div class="navbar">
+  <button class="toggle" (click)='sideToggle();'>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="wrapper">
+    <input type="text" (click)="activateSearch(true);">
+    <i class="fa fa-2x fa-search"></i>
+  </div>
+
+
+  <button (click)='sideRightToggle();' class="toggleright">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<div [@rightSettings]='rightNavState' [ngClass]="{'dropdownResponsive':rightSideBar,'nodisplay':!rightSideBar}">
+  <ul *ngIf='isStudent()'>
+    <li>
+      <a [routerLink]="['/student/username']">Settings</a>
+    </li>
+    <li>
+      <a [routerLink]="['/student/privacy-policy']">Privacy Policy</a>
+    </li>
+    <li>
+      <a [routerLink]="['/student/terms-of-service']">Terms of use</a>
+    </li>
+    <li>
+      <a [routerLink]="['/student/contact-us']">Contact us</a>
+    </li>
+    <li>
+      <a (click)='logout()' [routerLink]="['/']">Logout</a>
+    </li>
+
+  </ul>
+  <ul *ngIf='isMentor()'>
+    <li>
+      <a [routerLink]="['/mentor/username']">Settings</a>
+    </li>
+    <li>
+      <a [routerLink]="['/mentor/privacy-policy']">Privacy Policy</a>
+    </li>
+    <li>
+      <a [routerLink]="['/mentor/terms-of-service']">Terms of use</a>
+    </li>
+    <li>
+      <a [routerLink]="['/mentor/contact-us']">Contact us</a>
+    </li>
+    <li>
+      <a (click)='logout()' [routerLink]="['/']">Logout</a>
+    </li>
+
+  </ul>
+</div>
+
+<div [ngClass]="{'sidebar':sidebar,'nodisplay':!sidebar}">
+  <div class="relative-wrapper">
+    <i class="fas fa-times" (click)="sideToggle()"></i>
+  </div>
+  <div class="root-wrapper">
+
+    <div *ngIf='isStudent();' style="flex:1">
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/student/dashboard']">Home</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-chart-pie" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/student/analytics']">Analytics</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/student/mentors']">My Mentors</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="far fa-question-circle" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/student/quiz-hub']">Quizzes</a>
+        </p>
+      </div>
+
+    </div>
+    <div *ngIf='isMentor();' style="flex:1">
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/mentor/dashboard']">Home</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="far fa-question-circle" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/mentor/set-quiz']">Set Quiz</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/mentor/my-students']">My Students</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-file-invoice" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/mentor/my-school']">My Courses</a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-bell" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}">
+          <a [routerLink]="['/mentor/join-requests']">New Requests</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

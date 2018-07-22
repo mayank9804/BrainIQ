@@ -1,0 +1,45 @@
+<div class="analytics">
+  <!-- <div class="graphRenderer">
+    <img src="../../../assets/img/graph.jpeg" class="img-responsive" alt="">
+  </div> -->
+
+  <h2>Know your individual results</h2>
+  <div class="row perQuizIq">
+    <div class="col-xs-12 col-sm-4 quizIq" *ngFor='let quiz of completedQuiz'>
+      <h2>{{quiz.category.name}}</h2>
+      <p>{{quiz.name}}</p>
+      <a (click)='publicprofilementor(quiz.author._id);'>{{quiz.author.username}}</a>
+      <hr>
+      <p>Mentor: {{ quiz.author.name.firstname }}&nbsp;{{ quiz.author.name.lastname }}</p>
+      <p>Level: {{ quiz.level|uppercase }}</p>
+      <p>Marks:{{quiz.score}}/20</p>
+      <hr>
+      <button class="analyse-iq" type="button" (click)='analyse(quiz._id);'>Analyse Results</button>
+    </div>
+  </div>
+
+  <div class="analysis-window" *ngIf='analyseQuiz'>
+    <div class="row perQuestion" *ngFor='let ques of questions'>
+      <div class="col-xs-12 question">
+        <h2>{{ques.questionText}}</h2>
+      </div>
+      <div class="col-xs-12 optionA" [ngClass]="{'option':!ques.answers[0].isCorrect, 'right-answer':ques.answers[0].isCorrect}">
+        <p>{{ques.answers[0].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionB" [ngClass]="{'option':!ques.answers[1].isCorrect, 'right-answer':ques.answers[1].isCorrect}">
+        <p>{{ques.answers[1].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionC" [ngClass]="{'option':!ques.answers[2].isCorrect, 'right-answer':ques.answers[2].isCorrect}">
+        <p>{{ques.answers[2].answerText}}</p>
+      </div>
+      <div class="col-xs-12 optionD" [ngClass]="{'option':!ques.answers[3].isCorrect, 'right-answer':ques.answers[3].isCorrect}">
+        <p>{{ques.answers[3].answerText}}</p>
+      </div>
+      <div class="col-xs-12 correctResponse">
+        <p>Your Answer: {{ques.response.answerText}}</p>
+        <p *ngIf='ques.response.isCorrect'>Correct</p>
+        <p *ngIf='!ques.response.isCorrect'>Incorrect</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="sidebar" [ngClass]="{'shadow':state=='hovered'}">
+  <div class="root-sidebar" [@sideBar]='state' (mouseenter) ="sidebar()" (mouseleave) ="sidebar()">
+    <div class="root-item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p *ngIf='isStudent();' [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/dashboard']">Brainees</a></p>
+        <p *ngIf='isMentor();' [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/dashboard']">Brainees</a></p>
+    </div>
+    <div *ngIf='isStudent();'>
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/dashboard']">Home</a></p>
+      </div>
+      <div class="item">
+        <i class="fas fa-chart-pie" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/analytics']">Analytics</a></p>
+      </div>
+      <div class="item">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/mentors']">My Mentors</a></p>
+      </div>
+      <div class="item">
+        <i class="far fa-question-circle" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/student/quiz-hub']">Quizzes</a></p>
+      </div>
+    </div>
+    <div *ngIf='isMentor();'>
+      <div class="item">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/dashboard']">Home</a></p>
+      </div>
+      <div class="item">
+          <i class="far fa-question-circle" aria-hidden="true"></i>
+          <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/set-quiz']">Set Quiz</a></p>
+      </div>
+      <div class="item">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/my-students']">My Students</a></p>
+      </div>
+      <div class="item">
+        <i class="fas fa-book-open" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/my-school']">My Courses</a></p>
+      </div>
+      <div class="item">
+        <i class="fas fa-bell" aria-hidden="true"></i>
+        <p [ngClass]="{'active':state=='hovered'}"><a [routerLink]="['/mentor/join-requests']">New Requests</a></p>
+      </div>
+    </div>
+  </div>
+</div>

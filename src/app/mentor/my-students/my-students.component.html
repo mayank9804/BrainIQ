@@ -1,0 +1,17 @@
+<div class="myStudents">
+  <h2>Your Students</h2>
+  <div class="row studentContainer">
+    <h3 *ngIf='myStudents.length==0'>You have no students yet!</h3>
+    <div *ngFor='let student of myStudents'>
+      <div class="col-xs-12 col-sm-4 student-box">
+        <img src="" alt="">
+        <h2>{{student.name.firstname}}&nbsp;{{student.name.lastname}}</h2>
+        <p>{{student.email}}</p>
+        <!-- Public profile of  -->
+        <a [routerLink]="['/mentor/student',student._id]">{{student.username}}</a>
+        <hr>
+        <a (click)='removeStudent(student._id);'>Remove</a>
+      </div>
+    </div>
+  </div>
+</div>

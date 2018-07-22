@@ -1,0 +1,61 @@
+<div class="profile">
+    <h2>{{myDetails?.name.firstname}}&nbsp;{{myDetails?.name.lastname}}</h2>
+    <img src="../../../assets/img/teacher.jpeg" alt="">
+    <form class="form-settings" #basicDetails='ngForm'>
+        <label for="firstname">First Name</label>
+        <div class="form-box">
+            <input #firstname='ngModel' ngModel type="text" name="firstname"  value="{{myDetails?.name.firstname}}">
+            <button type="button" (click)='change({firstname:firstname.value})' [disabled]="(firstname.value == myDetails?.name.firstname || firstname.value=='') && true">Change</button>
+        </div>
+        <p *ngIf='firstname.value==myDetails?.name.firstname' class="errorMessage">Firstname cannot be same as old one</p>
+
+        <label for="lastname">Last Name</label>
+        <div class="form-box">
+            <input #lastname='ngModel' ngModel type="text" name="lastname" value="{{myDetails?.name.lastname}}">
+            <button type="button" (click)='change({lastname:lastname.value})' [disabled]="(lastname.value==myDetails?.name.lastname || lastname.value=='') && true">Change</button>
+        </div>
+        <p *ngIf='lastname.value==myDetails?.name.lastname' class="errorMessage">Lastname cannot be same as old one</p>
+
+        <label for="email">Email Address</label>
+        <div class="form-box">
+            <input #email='ngModel' type="email" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email"
+                value="{{myDetails?.email}}">
+            <button type="submit" (click)='change({email: email.value})' [disabled]="(email.value==myDetails?.email || email.value==''|| email.invalid) && true">Change</button>
+        </div>
+        <p *ngIf='email.value==myDetails?.email' class="errorMessage">Email cannot be same as old one!</p>
+        <p *ngIf='email.invalid' class="errorMessage">Please enter a valid email</p>
+    </form>
+    <p *ngIf='errMessage' class="errorMessage">{{errMessage}}</p>
+    <form #passwordForm='ngForm' class="form-settings passwordForm">
+        <h2 class="seperator">Change Password</h2>
+        <label for="current">Current Password</label>
+        <input #current='ngModel' ngModel type="password" name="current">
+        <p *ngIf='passwordInvalidMessage' class="errorMessage">{{passwordInvalidMessage}}</p>
+        <label for="password">New Password</label>
+        <input #password='ngModel' ngModel type="password" name="password" minlength="8">
+        <p *ngIf='password.errors?.minlength' class="errorMessage">Too Short! Must be greater or equal to 8 digits</p>
+        <label for="repassword">Retype new Password</label>
+        <input #repassword='ngModel' ngModel type="password" name="repassword">
+        
+        <p *ngIf='password.value!=repassword.value && !repassword.pristine' class="errorMessage">New Passwords must match</p>
+        <p *ngIf='password.value==current.value && password.touched && current.touched' class="errorMessage">New Password cannot be same as old password</p>
+        <p *ngIf='errMessage' class="errorMessage">{{errMessage}}</p>
+        <button type="button" (click)='changePassword(passwordForm)' [disabled]="(password.value!=repassword.value || password.value=='' || current.value=='' || current.value == password.value || current.invalid || password.invalid) && true">Change</button>
+    </form>
+    <p *ngIf='passwordChangeMessage' class="successMessage">{{passwordChangeMessage}}</p>
+    
+    
+    <form #socialForm='ngForm' class="form-settings" *ngIf="_authService.whichRole()=='isMentor'">
+        <h2 class="seperator">Social Connectivity</h2>
+        <label for="linkedin">LinkedIN</label>
+        <div class="form-box">
+            <input #linkedin='ngModel' ngModel type="text" name="linkedin" placeholder="https://www.linkedin.com/username" pattern="https://www.linkedin.com/[a-z0-9._%+-]+" value="{{myDetails?.linkedinUrl}}">
+            <button type="button" [disabled]="(linkedin.value=='' || !linkedin.valid || linkedin.value==myDetails?.linkedinUrl)&& true" (click)='change({linkedinUrl:linkedin.value})'>Update</button>
+        </div>
+        <div class="errors">
+            <p *ngIf="!linkedin.valid" class="errorMessage">Please enter a valid url eg:"https://www.linkedin.com/xyz"</p>
+            <p *ngIf='linkedin.value==myDetails?.linkedinUrl' class="errorMessage"> Please enter a new one</p>
+        </div>
+    </form>
+    <p *ngIf='errMessage' class="errorMessage">{{errMessage}}</p>
+</div>

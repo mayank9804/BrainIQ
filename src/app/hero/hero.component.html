@@ -1,0 +1,281 @@
+<!-- Navbar Starts -->
+<nav class="navbar-own" [ngClass]="{'navbar-change':navChanger}">
+    <div class="container-fluid ">
+        <div class="header">
+
+            <div class="left">
+                <img [routerLink]="['/']" src="../../assets/img//logo.png" class="logo" alt="">
+            </div>
+
+            <div class="right">
+                <ul>
+
+                   
+
+                    <li class="loginbtn btndirective big-screen">
+                        <a [routerLink]="['/login']">Login</a>
+                    </li>
+
+                    <li class="btndirective big-screen">
+                        <a class="signup" [routerLink]="['/signup']">Signup</a>
+                    </li>
+
+                    <li class="toggle" (click)='toggleNavbar();'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
+        </div>
+        <div [@displayResNavbar]='toggleState' [ngClass]="{'dropdownResponsive':toggleNavbarVar,'displayNone':!toggleNavbarVar}">
+            <ul>
+                <li>
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+                <li>
+                    <a class="signup" [routerLink]="['/signup']">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar Ends -->
+
+
+<!-- Hero Image Starts -->
+<section class="hero-image">
+    <div class="container image-container">
+        <div class="hero-text">
+            <h1>Know? Why don't you show?</h1>
+
+            <button [routerLink]="['/signup']">Explore More</button>
+
+        </div>
+    </div>
+</section>
+<!-- Hero Image Ends -->
+
+
+<!-- Content starts -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Categories Start -->
+        <div id="demo" class="collapse">
+            Lorem ipsum dolor text....
+        </div>
+
+        <div class="categories">
+            <div class="row">
+                <div class="col-md-4 col-xs-12 left">
+                    <h2>Analyze your
+                        <br>
+                        <span class="capitalize">skills</span>
+                    </h2>
+                    <p>With quality quizzes from mentors all over the globe see where do you stand?
+                    </p>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <div class="category-box-container">
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Javascript</h2>
+                            <p>Mentor: Abhay Singh</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Python</h2>
+                            <p>Mentor: Deborah Korata</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Java</h2>
+                            <p>Mentor: Joe Eames</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Angular</h2>
+                            <p>Mentor: David Malan</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Node</h2>
+                            <p>Mentor: Peter Vogh</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>C++</h2>
+                            <p>Mentor: Ian Bell</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>C</h2>
+                            <p>Mentor: John Gogh</p>
+                        </div>
+                        <div [routerLink]="['/login']" class="category-box">
+                            <img src="" alt="">
+                            <h2>Bash</h2>
+                            <p>Mentor: Neil Borgh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Categories finished -->
+
+
+        <!-- Details Start -->
+        <div class="details">
+
+            <div class="row">
+                <div class="roles-sections student col-xs-12" [ngClass]="{'col-md-5':studentHover!=true && teacherHovered!=true,'col-md-9':studentHover==true && teacherHovered==false,'col-md-2':studentHover==false && teacherHovered==true}"
+                    (mouseover)="rolesHovered($event)">
+                    <div class="detail-bar">
+                        <div class="sample"></div>
+                        <h2>Student</h2>
+                        <p>Gear up for your future with us!</p>
+                        <div class="row detailedProduct">
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Quizzes</h2>
+                                <p>Professional Content from Professional mentors</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Analytics</h2>
+                                <p>Get detailed analytics for quizzes you attend</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Feeds</h2>
+                                <p>Live discussion in feeds with mentors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roles-sections teacher col-xs-12" [ngClass]="{'col-md-5 col-md-offset-2':studentHover!=true && teacherHovered!=true,'col-md-2':studentHover==true && teacherHovered==false,'col-md-9':studentHover!=true && teacherHovered==true, 'col-md-offset-1':(studentHover==true && teacherHovered==false )|| (studentHover!=true && teacherHovered==true)}"
+                    (mouseover)="rolesHovered($event)">
+                    <div class="detail-bar">
+                        <div class="sample"></div>
+                        <h2>Teacher</h2>
+                        <p>Help us gearing youth's future!</p>
+                        <div class="row detailedProduct">
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Strong Profile</h2>
+                                <p>Grow your profile with student's reviews</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Networking</h2>
+                                <p>Grow your connections with other peers</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <h2>Claims/Rewards</h2>
+                                <p>Claims/Rewards for best mentors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Detail ends -->
+
+
+
+    </div>
+</section>
+<!-- Content ends -->
+
+<!-- What is Portal starts-->
+<div class="portal-what">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 left">
+            <h2>What is our
+                <span class="capitalize">portal</span>
+            </h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab non tempora hic recusandae perspiciatis nam consequatur
+                et eveniet voluptatibus quisquam sed ipsa autem voluptatum harum aperiam quod, est suscipit debitis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odit aliquid amet, laborum doloremque temporibus
+                eos, eius hic dicta iure tenetur rerum qui sapiente similique adipisci quaerat ut minima ea. </p>
+        </div>
+        <div class="col-xs-12 col-sm-4 right">
+            <div style="position: relative;">
+                <img src="../../assets/img/monitor.png" class="monitor" alt="">
+                <img src="../../assets/img/logoinmac.png" alt="Logo in mac" class="logo-in-mac">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- What is Portal ends -->
+
+
+<!-- Footer Starts -->
+<div class="downHandler">
+    <footer>
+        <div class="row footer-body">
+            <div class="col-xs-12  col-sm-4 bars">
+                <p>Social Connectivity</p>
+                <ul class="list list-1">
+                    <div class="col-xs-6 col-sm-12 list-right">
+                        <li>
+                            <a href="https://www.instagram.com/brainees"> Instagram</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/brainees"> Facebook</a>
+                        </li>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 list-left">
+                        <li>
+                            <a href="https://www.linkedin.com/brainees"> LinkedIn </a>
+                        </li>
+                        <li>
+                            <a href="https://www.slack.com/brainees">Slack</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 bars">
+                <p>Contact Us</p>
+                <ul class="list list-1">
+                    <li>
+                        <a href="mailto:brainees@gmail.com"> brainees@gmail.com </a>
+                    </li>
+                    <li>
+                        <a href="#">+91-9814670363</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 bars">
+                <p>Reach us</p>
+                <ul class="list list-1">
+                    <li>Phagwara, 144401, Punjab</li>
+                    <li>Lovely Professional University</li>
+                    <li>India</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer ends -->
+
+    <!-- Copyright footer starts-->
+    <div class="row copyright-footer">
+        <div class="col-xs-12 col-sm-4 left">
+            <ul class="left-content">
+                <li>Site Map</li>
+                <li>Terms of use</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-3 right">
+            <p class="right-content">Copyright &copy; 2018| Project LPU|VenturePact</p>
+        </div>
+    </div>
+    <!-- Copyright footer ends -->
+
+</div>
+<!-- downHandler ends -->

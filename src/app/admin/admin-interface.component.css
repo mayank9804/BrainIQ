@@ -1,0 +1,45 @@
+.interface{
+    margin-left: 150px;
+}
+.interface *{
+    font-family: 'Open Sans',sans-serif;
+}
+.interface a{
+    cursor: pointer;   
+}
+table{
+    margin-top:3.45% ;
+}
+
+.pgctrl /deep/ .ngx-pagination{
+    display: flex;
+    justify-content: center;
+
+}
+
+.sidebar{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: rgb(34, 34, 34,0.9);
+    height: 100%;
+    position: fixed;
+    width: 150px;
+    left: 0;
+    top: 0;
+}
+.sidebar ul{
+    list-style: none;
+    width: 100%;
+}
+.sidebar ul button{
+    font-family: 'Asap',sans-serif;
+    color: azure;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    width: 100%;
+    margin-top: 2%;
+    padding: 5px;
+    background-color: transparent;
+}

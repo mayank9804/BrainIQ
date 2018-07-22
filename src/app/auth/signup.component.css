@@ -1,0 +1,106 @@
+.signupPage{
+    /* background-color: rgb(255, 145, 0); */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.signupPage *:not(i){
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 20px;
+}
+.signupPage .wrapper{
+    width:40%;
+    /* background-color: brown; */
+    padding: 20px;
+}
+.signupPage .help-block{
+    font-size: 15px;
+    font-family: 'Josefin Sans',sans-serif;
+}
+@media (max-width:1000px){
+    .signupPage .wrapper{
+        width: 60%;  
+    }
+}
+@media (max-width:500px){
+    .signupPage .wrapper{
+        width: 90%;  
+    }
+}
+
+.signupPage .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.signupPage .header a{
+    display: block;
+    text-decoration: none;
+    color:#8D7FC9;
+    margin-top: 10px;
+}
+.signupPage .logo{
+    height:70px;
+    width: 210px;
+}
+form input.inp{
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 15px;
+    padding: 20px;
+    margin-top:30px;
+    border-radius:5px;  
+    border:0.5px solid #EA1879;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form .rad{
+    text-align: center;
+    margin-top:3%;
+    font-family: 'Open Sans', sans-serif;  
+}
+
+form input[type="radio"]{
+    margin-left:5%;
+}
+
+form input.errorInput{
+    border:0.5px solid red;
+    transition: 0.3s ease-out;
+}
+form .username-box{
+    position: relative;
+}
+form i.fa{
+    display: none;
+}
+form i.fa.visible{
+    display: block;
+    position: absolute;
+    top:18px;
+    right: 10px;
+}
+button.disableButton{
+    opacity: 0.8;
+    cursor: not-allowed;
+    transition: 0.1s ease-out;
+}
+.signupPage button{
+    display: block;
+    margin: 0 auto;
+    margin-top:30px; 
+    height: 35px;
+    width: 110px;
+    background-color: #F96816;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    transition: 0.1s ease-out;
+    font-family: 'Open Sans', sans-serif;
+}

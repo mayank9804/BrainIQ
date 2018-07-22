@@ -1,0 +1,14 @@
+<div class="public-teacher-posts">
+    <div class="row">
+        <div *ngFor='let mPost of myPosts'>
+            <div class="col-xs-12 post">
+                <a [routerLink]="['/student/mentor',mPost.author]">{{mPost.name.firstname}}&nbsp;{{mPost.name.lastname}}</a>
+                <p class="date">Post created on {{mPost.createdDate}}</p>
+                <p>{{mPost.post}}</p>
+                <a *ngIf="mPost.likestate=='unlike'" (click)='unlike(mPost)'>{{mPost.likesCount}} Likes</a>
+                <a *ngIf="mPost.likestate=='like'" (click)='like(mPost)'>{{mPost.likesCount}} Likes</a>
+                
+            </div>
+        </div>
+    </div>
+</div>

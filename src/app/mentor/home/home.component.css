@@ -1,0 +1,115 @@
+
+.post-form *{
+    display: block;
+}
+
+.post-form{
+    position: relative;
+    width: 100%;
+}
+textarea{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: #363636;
+    outline: none;
+    height: 200px;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid white;
+    resize: none;
+    position: relative;
+    padding-right:50px;
+    
+}
+ .submit-post{
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: #363636;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px #181818;
+    transition: 0.1s ease-in;
+    font-size: 14px;
+}
+.submit-post[disabled]{
+    cursor: not-allowed;
+}
+.post-form .submit-post:hover{
+    box-shadow: 1px 2px 0px #181818;
+    transition: 0.1s ease-in;
+}
+
+
+.post{
+    width: 100%;
+    background-color: #363636;
+    padding: 20px;
+    margin-top:5%;
+    border-radius: 5px;
+}
+.post a{
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+    
+}
+.post a:hover{
+    color: white;
+    transition: 0.2s ease-in;
+    
+}
+
+.post p{
+    font-size: 20px;
+    margin: 10px;
+}
+.post a{
+    margin: 10px;
+    font-size:14px;
+    color: mediumturquoise;
+}
+.post .date{
+    margin: 10px;
+    font-size:14px;
+    color: mediumturquoise;
+}
+.edit-submit-post{
+    position: absolute;
+    bottom: 10px;
+    right: 4px;
+    background-color: #363636;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px #181818;
+    transition: 0.1s ease-in;
+    font-size: 14px;
+    
+    
+}
+.edit-submit-post[disabled]{
+    cursor: not-allowed;
+}
+.cross-edit{
+    position: absolute;
+    top:10px;
+    right:10px;
+    font-size: 30px;
+    color: #363636;
+}
+
+.cross-edit:hover{
+    cursor: pointer;
+}
+@media (max-width:780px){
+    .form-col-container{
+        padding: 0;
+    }
+}

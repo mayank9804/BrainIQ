@@ -1,0 +1,13 @@
+<div class="profile">
+    <div class="row profile-wrapper">
+        
+        <div class="col-xs-12 basic-details">
+            <h2>{{details.name.firstname}}&nbsp;{{details.name.lastname}}</h2>
+            <img src="../../../assets/img/teacher.jpeg" alt="Display picture">
+            <p>{{details.username}}</p>
+            <p>{{details.email}}</p>
+            <p *ngIf='details.isMentor'>{{details.linkedinUrl}}</p>
+        </div>
+
+    </div>
+</div>
