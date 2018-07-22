@@ -23,19 +23,9 @@ export class MentorsComponent implements OnInit {
     )
   }
 
-  // getMyMentors() {
-  //   this._studentGeneralService.getMyMentors().subscribe(res => {
-  //     this.myMentors = res.mentors;
-  //   }, err => {
-  //     console.log(err.status);
-  //   }, () => {
-  //     this.browseMentors();
-  //   });
-  // }
-
   browseMentors() {
     this._studentGeneralService.browseMentors().subscribe(res => {
-      this.allMentors = res.mentors;
+      this.allMentors = res['mentors'];
       this.allMentors = this.allMentors.filter(e => {
         for (let myMentor of this.myMentors) {
           if (myMentor._id == e._id)
@@ -43,7 +33,6 @@ export class MentorsComponent implements OnInit {
         }
         return true;
       })
-      // this.check();
     }, err => {
       console.log(err.status);
       this.allMentors = null;
@@ -74,8 +63,4 @@ export class MentorsComponent implements OnInit {
     })
   }
 
-  // check() {
-  //   if (this.allMentors.length == 0)
-  //     this.allMentors = null;
-  // }
 }

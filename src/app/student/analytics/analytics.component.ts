@@ -16,7 +16,7 @@ export class AnalyticsComponent implements OnInit {
 
   ngOnInit() {
     this._studentQuizService.getCompletedQuiz().subscribe(res=>{
-      this.completedQuiz = res.completedQuiz;
+      this.completedQuiz = res['completedQuiz'];
     },err=>{
       console.log(err);
     },()=>{
@@ -28,7 +28,7 @@ export class AnalyticsComponent implements OnInit {
     
     this.analyseQuiz = true;
     this._studentQuizService.getAnalysedQuestions(id).subscribe(res=>{
-      this.questions = res.questions;
+      this.questions = res['questions'];
     },err=>{
       console.log(err);
     },()=>{

@@ -17,7 +17,7 @@ export class MyStudentsComponent implements OnInit {
 
   getMyStudents(){
     this._mentorGeneralService.getMyStudents().subscribe(res=>{
-      this.myStudents = res.myStudents;
+      this.myStudents = res['myStudents'];
     },err=>{
       console.log(err);
     },()=>{

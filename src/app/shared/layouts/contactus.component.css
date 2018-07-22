@@ -14,6 +14,7 @@
     font-family: 'Asap', sans-serif;
     background: #FFF;
     font-size: 36px;
+    background-clip: text;
     -webkit-background-clip: text;
 
 }

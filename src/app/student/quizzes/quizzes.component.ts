@@ -29,11 +29,11 @@ export class QuizzesComponent implements OnInit {
     this._studentQuizService.getQuizzes().subscribe(res => {
       // Decorators Async-Await
       this._studentQuizService.attendedQuizzes().subscribe(resNested => {
-        if (resNested.myQuizzes.length > 0) {
+        if (resNested['myQuizzes'].length > 0) {
           // Decorators
-          res.quizzes.forEach(e => {
+          res['quizzes'].forEach(e => {
             let counter = false;
-            resNested.myQuizzes.forEach(v => {
+            resNested['myQuizzes'].forEach(v => {
               if (e._id == v.quiz) {
                 if (v.completed == false){
                   this.myQuizzes.push(e);
@@ -51,7 +51,7 @@ export class QuizzesComponent implements OnInit {
           })
         }
         else{
-          this.allQuizzes = res.quizzes;
+          this.allQuizzes = res['quizzes'];
         }
 
       }, err => {
@@ -79,7 +79,7 @@ export class QuizzesComponent implements OnInit {
   activateTest(id) {
 
     this._studentQuizService.activateTest(id).subscribe(res => {
-      this.currentQuestion = res.question;
+      this.currentQuestion = res['question'];
       this.testMode = true;
       this.quizId = id;
     })
@@ -94,11 +94,11 @@ export class QuizzesComponent implements OnInit {
     };
 
     this._studentQuizService.checkResponse(data).subscribe(res => {
-      this.questionResponse = res.isCorrect;
+      this.questionResponse = res['isCorrect'];
       if (!this.questionResponse) {
         this.wrongAnswer = index + 1;
         this.currentQuestion.answers.forEach((e, index) => {
-          if (e._id == res.correctAnswer._id)
+          if (e._id == res['correctAnswer']._id)
             this.rightAnswer = index + 1;
         })
       }
@@ -115,9 +115,9 @@ export class QuizzesComponent implements OnInit {
     this.wrongAnswer = -1;
     this.questionResponse = null;
     this._studentQuizService.nextQuestion(this.quizId).subscribe(res => {
-      if (res.completed) {
+      if (res['completed']) {
         this.completed = true;
-        this.score = res.score.score;
+        this.score = res['score'].score;
         this.testMode = false;
         this.allQuizzes = this.allQuizzes.filter(e => {
           if (e._id != this.quizId)
@@ -129,7 +129,7 @@ export class QuizzesComponent implements OnInit {
         })
       }
       else {
-        this.currentQuestion = res.question;
+        this.currentQuestion = res['question'];
       }
     });
   }

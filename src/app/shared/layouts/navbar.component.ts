@@ -17,12 +17,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if(this.isStudent()){
       this._studentGeneralService.getMyDetails().subscribe(res=>{
-        this.profileName = res.details.name.firstname;
+        this.profileName = res['details'].name.firstname;
       })
     }
     else if(this.isMentor()){
       this._mentorGeneralService.getMyDetails().subscribe(res=>{
-        this.profileName = res.details.name.firstname;
+        this.profileName = res['details'].name.firstname;
       })
     }
   }

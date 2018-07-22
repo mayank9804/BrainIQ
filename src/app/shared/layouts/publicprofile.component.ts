@@ -13,7 +13,7 @@ export class PublicProfileComponent implements OnInit {
 
   ngOnInit() {
     this._coreService.getDetails(this.route.snapshot.params['id']).subscribe(res=>{
-      this.details = res.details;
+      this.details = res['details'];
     })
   }
 

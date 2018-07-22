@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     console.log("Posting");
     this._mentorGeneralService.postStatus(this.postContent).subscribe(res=>{
       console.log(res);
-      this.myPosts.push(res.post);
+      this.myPosts.push(res['post']);
       this.postBox.nativeElement.value = '';
     },err=>{
       console.log(err);
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   getStatus(){
     this._mentorGeneralService.getPosts().subscribe(res=>{
-      this.myPosts = res.posts;
+      this.myPosts = res['posts'];
       this.myPosts.map(e=>{
         e.createdDate = e.createdDate.split('T')[0];
       })

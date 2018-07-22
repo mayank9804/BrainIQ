@@ -183,7 +183,7 @@ export class SetQuizComponent implements OnInit {
       this.quizmode = false;
 
       this._mentorGeneralService.getCategories().subscribe(res => {
-        this.categories = res.categories;
+        this.categories = res['categories'];
       }, err => {
         this.categories = [];
         console.log(err);
@@ -192,7 +192,7 @@ export class SetQuizComponent implements OnInit {
       })
 
       this._mentorGeneralService.getUnpublishedQuiz().subscribe(res => {
-        this.unpublishedQuiz = res.unpublishedQuiz;
+        this.unpublishedQuiz = res['unpublishedQuiz'];
       }, err => {
         console.log("Error");
       }, () => {
@@ -205,9 +205,9 @@ export class SetQuizComponent implements OnInit {
 
         this.quizmode = Boolean(localStorage.getItem('quizmode'));
         // Array of question ID
-        this.questions = res.quiz.questions;
+        this.questions = res['quiz'].questions;
         this.questionIndex = this.questions.length == 0 ? 1 : this.questions.length + 1;
-        this.quizName = res.quiz.name;
+        this.quizName = res['quiz'].name;
       }, err => {
         console.log("Error occured while recieving quiz details!");
       }, () => {
@@ -227,11 +227,11 @@ export class SetQuizComponent implements OnInit {
     this._mentorGeneralService.setQuiz(quizDetails.value).subscribe(res => {
       this.questions = [];
       this.questionIndex = 1;
-      this.quizName = res.quizDetails.name;
+      this.quizName = res['quizDetails'].name;
       this.quizmode = true;
       this.quesAnsDetail = [];
       localStorage.setItem('quizmode', String(true));
-      localStorage.setItem('quizId', String(res.quizDetails._id));
+      localStorage.setItem('quizId', String(res['quizDetails']._id));
 
     }, err => {
       console.log("Error " + err);
@@ -248,7 +248,7 @@ export class SetQuizComponent implements OnInit {
       }
       this._mentorGeneralService.pushQuestion(questionToBeSent).subscribe(res => {
 
-        let questionId = res.modifiedQuiz.questions[res.modifiedQuiz.questions.length - 1];
+        let questionId = res['modifiedQuiz'].questions[res['modifiedQuiz'].questions.length - 1];
         this.questions.push(questionId);
         this.questionIndex = this.questionIndex + 1;
         this.questionForm.reset();
@@ -290,8 +290,8 @@ export class SetQuizComponent implements OnInit {
           console.log(this.questions[this.questionIndex - 1]);
           this._mentorGeneralService.getQuestionWithAnswers(this.questions[this.questionIndex - 1]).subscribe(resQuestion => {
             // Make sure the format of backend is same as required!
-            this.questionForm.setValue(resQuestion.question);
-            this.quesAnsDetail = resQuestion.additional;
+            this.questionForm.setValue(resQuestion['question']);
+            this.quesAnsDetail = resQuestion['additional'];
           })
 
         }
@@ -323,8 +323,8 @@ export class SetQuizComponent implements OnInit {
     console.log(this.questions);
     this._mentorGeneralService.getQuestionWithAnswers(this.questions[this.questionIndex - 1]).subscribe(res => {
       this.questionForm.reset();
-      this.questionForm.setValue(res.question);
-      this.quesAnsDetail = res.additional;
+      this.questionForm.setValue(res['question']);
+      this.quesAnsDetail = res['additional'];
       console.log(this.quesAnsDetail);
     }, err => {
       this.questionIndex += 1;

@@ -17,7 +17,7 @@ export class NewRequestsComponent implements OnInit {
 
   newRequests(){
     this._mentorGeneralService.newRequests().subscribe(res=>{
-      this.newRequestStudent = res.newRequests
+      this.newRequestStudent = res['newRequests']
     },err=>{
       console.log(err.status);
     },()=>{

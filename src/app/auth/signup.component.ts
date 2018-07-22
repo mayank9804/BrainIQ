@@ -209,7 +209,7 @@ export class SignupComponent implements OnInit {
   validateUserNameTaken(c: AbstractControl) {
     return this._authService.checkUserName(c.value.toLocaleLowerCase()).pipe(
       map(res => {
-        return res.available?null:{'taken':true};
+        return res['available']?null:{'taken':true};
       })
     )
   }
@@ -217,17 +217,17 @@ export class SignupComponent implements OnInit {
 
 
   async signup(data) {
-    this.signupData = data;
+    
     if (this.signupForm.get('role').value == 'student') {
-      await this._authService.registerStudent(this.signupData, () => {
+      await this._authService.registerStudent(data, () => {
         this._route.navigateByUrl('/student/dashboard');
       });
 
 
     }
     else if (this.signupForm.get('role').value == 'mentor') {
-      this.signupData.linkedinUrl = this.signupForm.get("linkedinUrl").value;
-      await this._authService.registerMentor(this.signupData, () => {
+      data.linkedinUrl = this.signupForm.get("linkedinUrl").value;
+      await this._authService.registerMentor(data, () => {
         this._route.navigateByUrl('/mentor/dashboard');
       });
 

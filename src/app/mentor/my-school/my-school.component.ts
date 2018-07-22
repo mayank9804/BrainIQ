@@ -14,7 +14,7 @@ export class MySchoolComponent implements OnInit {
   
   ngOnInit() {
     this._mentorGeneralService.getPublishedQuizzes().subscribe(res=>{
-      this.myquizzes = res.publishedQuiz;
+      this.myquizzes = res['publishedQuiz'];
     },err=>{
       console.log("Error");
     },()=>{
@@ -38,7 +38,7 @@ export class MySchoolComponent implements OnInit {
   viewQuiz(id){
     this.viewmode = true;
     this._mentorGeneralService.viewQuiz(id).subscribe(res=>{
-      this.questions = res.questions;
+      this.questions = res['questions'];
     },err=>{
       console.log("Error");
     },()=>{

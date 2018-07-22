@@ -29,7 +29,7 @@ export class AuthService {
 
     registerStudent(studentData,cb) {
         return this._http.post<any>(`${this.BASE_URL}/student/register`, studentData).subscribe(res => {
-            this.saveToken(res.token);
+            this.saveToken(res['token']);
             console.log(res);
             cb();
         }, err => {
@@ -39,7 +39,7 @@ export class AuthService {
 
     registerMentor(MentorData,cb) {
         return this._http.post<any>(`${this.BASE_URL}/mentor/register`, MentorData).subscribe(res => {
-            this.saveToken(res.token);
+            this.saveToken(res['token']);
             cb();
         }, err => {
             console.log(err);
@@ -49,7 +49,7 @@ export class AuthService {
     login(LoginData) {
         return this._http.post(`${this.BASE_URL}/login`, LoginData).pipe(
             tap(res => {
-                this.saveToken(res.token)
+                this.saveToken(res['token'])
             }),
             catchError(err => {
                 throw err;

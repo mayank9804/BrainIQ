@@ -35,8 +35,8 @@ export class AdminInterfaceComponent {
 
 	public setpageLimit(data) {
 		if (data) {
-			if (data > this.totalItems) {
-				this.itemsPerPage = this.totalItems;
+			if (data > this.totalItem) {
+				this.itemsPerPage = this.totalItem;
 			}
 			else if (data <= 0)
 				this.itemsPerPage = 1;

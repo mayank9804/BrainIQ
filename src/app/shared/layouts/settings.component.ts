@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
   getMyDetails(){
     if(this._authService.whichRole().toLocaleLowerCase() == 'isstudent'){
       this._studentGeneralService.getMyDetails().subscribe(res=>{
-        this.myDetails = res.details;
+        this.myDetails = res['details'];
       },err=>{
         console.log(err);
       })
@@ -33,8 +33,8 @@ export class SettingsComponent implements OnInit {
     }
     else if(this._authService.whichRole().toLocaleLowerCase() == 'ismentor'){
       this._mentorGeneralService.getMyDetails().subscribe(res=>{
-        console.log(res.details);
-        this.myDetails = res.details;
+        console.log(res['details']);
+        this.myDetails = res['details'];
       },err=>{
         console.log(err);
       })
@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit {
 
     this._coreService.changePassword(passwordObj).subscribe(res=>{
       // window.location.reload(true);
-      if(res.message.toLocaleLowerCase()=='success'){
+      if(res['message'].toLocaleLowerCase()=='success'){
         this.passwordChangeMessage = "Password successfully changed!";
       }
       window.location.reload(true);
