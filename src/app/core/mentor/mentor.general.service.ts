@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class MentorGeneralService {
-    private BASE_URL: string = 'http://localhost:3000/mentor/general';
-    private BASE_URL_COMMON: string = 'http://localhost:3000/common';
-    private BASE_URL_QUIZ: string = 'http://localhost:3000/mentor/quiz';
+    
+    private BASE_URL: string = `${environment.path}mentor/general`;
+    private BASE_URL_COMMON: string = `${environment.path}common`;
+    private BASE_URL_QUIZ: string = `${environment.path}mentor/quiz`;
     constructor(private _http: HttpClient) { }
 
     fetchBaseUrl() {

@@ -22,7 +22,7 @@ export class ResponsiveNavbarComponent implements OnInit {
   rightSideBar:boolean;
   rightNavState:string;
 
-  constructor(private _authService :AuthService,private _route:Router) { }
+  constructor(public _authService :AuthService,private _route:Router) { }
   ngOnInit() {
     this.sidebar = false;
     this.rightSideBar = false;

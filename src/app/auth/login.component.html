@@ -8,7 +8,7 @@
     </div>
 
 
-    <form [formGroup]="loginForm" [@inputEntry]='in'>
+    <form [formGroup]="loginForm" [@inputEntry]='state'>
 
       <div class="form-group">
         <input formControlName="username" type="text" name="username" placeholder="Username" [ngClass]="{'errorInput':userMessage }"

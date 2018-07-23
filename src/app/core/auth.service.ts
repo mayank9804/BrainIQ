@@ -4,12 +4,12 @@ import { Observable, throwError } from "rxjs";
 import { map, catchError, tap } from "rxjs/operators";
 import { AbstractControl } from "@angular/forms";
 import { Router } from "@angular/router";
-
+import { environment } from "../../environments/environment.prod";
 
 
 @Injectable()
 export class AuthService {
-    private BASE_URL: string = 'http://localhost:3000';
+    private BASE_URL: string = environment.path;
     private TOKEN_KEY: string = 'token';
 
 

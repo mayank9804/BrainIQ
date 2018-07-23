@@ -2,7 +2,7 @@
     <div class="col-xs-12" class="form-col-container">
         <form class="post-form">
             <textarea #postbox name="postStatus" id="post-status" autofocus placeholder="Write an update" [(ngModel)]='postContent.content'></textarea>
-            <button type="submit" class="submit-post" [disabled]="postContent.content==undefined" (click)='postStatus()'>Submit</button>
+            <button type="submit" class="submit-post" [disabled]="postContent.content.length==0" (click)='postStatus()'>Submit</button>
 
         </form>
     </div>

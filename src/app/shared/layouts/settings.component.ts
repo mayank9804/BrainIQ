@@ -15,7 +15,7 @@ export class SettingsComponent implements OnInit {
   response:String;
   passwordChangeMessage:String;
   passwordInvalidMessage:String;
-  constructor(private _studentGeneralService:StudentGeneralService,private _mentorGeneralService:MentorGeneralService,private _http:HttpClient,private _authService:AuthService,private _coreService:CoreService) { }
+  constructor(public _studentGeneralService:StudentGeneralService,public _mentorGeneralService:MentorGeneralService,private _http:HttpClient,public _authService:AuthService,public _coreService:CoreService) { }
   
 
   ngOnInit() {

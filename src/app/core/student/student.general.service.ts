@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
+import { environment } from "../../../environments/environment.prod";
 
 @Injectable()
 export class StudentGeneralService {
-    private BASE_URL: string = 'http://localhost:3000/student/general';
-    private BASE_URL_COMMON: string = 'http://localhost:3000/common';
+
+    private BASE_URL: string = `${environment.path}student/general`;
+    
+    private BASE_URL_COMMON: string = `${environment.path}common`;
     constructor(private _http: HttpClient) { }
 
 

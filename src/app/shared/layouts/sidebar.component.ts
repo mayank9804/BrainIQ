@@ -33,7 +33,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class SidebarComponent implements OnInit {
   state:string= 'not';
-  constructor(private _authService :AuthService) { }
+  constructor(public _authService :AuthService) { }
   ngOnInit() {
   }
   sidebar():void{

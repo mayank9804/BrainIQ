@@ -20,18 +20,15 @@ export class AuthInterceptorService implements HttpInterceptor {
                 headers: req.headers.set('Authorization', this.injector.get(AuthService).token)
             })
         }
-        if (authReq != req) {
-            return next.handle(authReq).pipe(
-                // This would handle unauthorized access!
-                tap(() => { }, err => {
-                    if (err.status == 401) {
-                        this._route.navigate(['/login']);
-                    }
-                })
-            );
-        } else {
-            console.log("HEllointer")
-            return next.handle(authReq);
-        }
+
+        return next.handle(authReq).pipe(
+            // This would handle unauthorized access!
+            tap(() => { }, err => {
+                if (err.status == 401) {
+                    this._route.navigate(['/login']);
+                }
+            })
+        );
+
     }
 }

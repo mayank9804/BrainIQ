@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
   passwordMessage: String;
   repasswordMessage: String;
   linkedinurlMessage: String;
-
+  state:String;
   //Root Form Group
   signupForm: FormGroup;
 

@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from "rxjs";
 import { map, catchError, tap } from "rxjs/operators";
 import { AuthService } from "./auth.service";
+import { environment } from "../../environments/environment";
 
 
 @Injectable()
 export class CoreService {
   role: String;
-  private BASE_URL: string = 'http://localhost:3000';
+  
+  private BASE_URL: string = environment.path;
 
   constructor(private _http: HttpClient, private _authService: AuthService) { }
 

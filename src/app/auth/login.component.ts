@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   loginData = {};
   errDisplay: any;
-
-
+  state:String = 'in';
   errMessage: string;
 
   constructor(private _route: Router, private _authService: AuthService, private _coreService: CoreService, private fb: FormBuilder) { }
 
 
   ngOnInit() {
+    
     this.loginForm = this.fb.group({
 
       username: ['', [Validators.required, Validators.minLength(3)]],
@@ -89,6 +89,8 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.loginData).subscribe(
       res => {
         this.loading = false;
+        console.log(res['message']);
+        
         if (res['message'].toLocaleLowerCase() == 'authorized user') {
           if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
             this._route.navigate(['/student/dashboard']);

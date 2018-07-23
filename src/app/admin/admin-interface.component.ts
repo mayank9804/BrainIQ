@@ -17,7 +17,7 @@ export class AdminInterfaceComponent {
 	page: number = 1;
 	role:String;
 
-	constructor(private httpService: CoreService,private _authService:AuthService) {}
+	constructor(private httpService: CoreService,public _authService:AuthService) {}
 	ngOnInit() {}
 
 	public getServerData(event) {

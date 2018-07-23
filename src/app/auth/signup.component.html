@@ -8,7 +8,7 @@
     
     <!-- <div *ngIf='res'><h1>Some error occured</h1></div> -->
 
-    <form [formGroup]="signupForm" [@inputEntry]='in'>
+    <form [formGroup]="signupForm" [@inputEntry]='state'>
 
       <div class="form-group">
         <input formControlName="emailId" class="inp" type="email" name="Email" placeholder="Email" autocomplete="off" [ngClass]="{'errorInput':emailMessage}">
