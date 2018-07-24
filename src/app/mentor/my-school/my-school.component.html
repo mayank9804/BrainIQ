@@ -1,6 +1,6 @@
 <div class="mySchool">
   <h2>You made this place...</h2>
-  <h2 *ngIf='myquizzes.length==0'>You have not published any quiz!</h2>
+  <h2 *ngIf='myquizzes?.length==0'>You have not published any quiz!</h2>
   <div class="row categoryContainer">
     <div class="col-xs-12 col-sm-4 quiz-box" *ngFor='let myquiz of myquizzes'>
       <h2>{{myquiz.category.name}}</h2>

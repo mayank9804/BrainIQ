@@ -6,7 +6,7 @@
             <img src="../../../assets/img/teacher.jpeg" alt="Display picture">
             <p>{{details.username}}</p>
             <p>{{details.email}}</p>
-            <p *ngIf='details.isMentor'>{{details.linkedinUrl}}</p>
+            <p *ngIf='details?.isMentor'>{{details.linkedinUrl}}</p>
         </div>
 
     </div>
