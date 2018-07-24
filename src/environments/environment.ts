@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  path:'http://localhost:3000/',
-  PORT:4200
+  path:'http://localhost:3000/'
 };
 
 /*
