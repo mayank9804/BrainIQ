@@ -1,13 +1,3 @@
-<!-- <div class="searchPortal" *ngIf='searchactivated'>
-
-  <div class="searchBox">
-    <i class="btn-cross" (click)="activateSearch(false)">X</i>
-    <input type="text" placeholder="Search here" class="searchbar" autofocus>
-  </div>
-
-
-</div> -->
-
 
 <div class="navbar">
   <button class="toggle" (click)='sideToggle();'>
@@ -121,7 +111,7 @@
         </p>
       </div>
       <div class="item">
-        <i class="fas fa-file-invoice" aria-hidden="true"></i>
+        <i class="fas fa-book-open" aria-hidden="true"></i>
         <p [ngClass]="{'active':state=='hovered'}">
           <a [routerLink]="['/mentor/my-school']">My Courses</a>
         </p>
