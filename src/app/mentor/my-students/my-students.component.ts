@@ -19,9 +19,9 @@ export class MyStudentsComponent implements OnInit {
     this._mentorGeneralService.getMyStudents().subscribe(res=>{
       this.myStudents = res['myStudents'];
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Get my students call executed! You should have either res or error by now");
+      
     })
   }
 
@@ -30,9 +30,9 @@ export class MyStudentsComponent implements OnInit {
       //Remove from UI
       this.myStudents = this.myStudents.filter(e=>e._id!=id);
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Remove student call executed! You should have either res or error by now");
+      
     })
   }
 }

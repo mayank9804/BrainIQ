@@ -89,8 +89,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.loginData).subscribe(
       res => {
         this.loading = false;
-        console.log(res['message']);
-        
+
         if (res['message'].toLocaleLowerCase() == 'authorized user') {
           if (this._authService.whichRole().toLocaleLowerCase() == 'isstudent') {
             this._route.navigate(['/student/dashboard']);

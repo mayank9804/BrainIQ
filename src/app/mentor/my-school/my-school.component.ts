@@ -16,9 +16,9 @@ export class MySchoolComponent implements OnInit {
     this._mentorGeneralService.getPublishedQuizzes().subscribe(res=>{
       this.myquizzes = res['publishedQuiz'];
     },err=>{
-      console.log("Error");
+      
     },()=>{
-      console.log("Get Published Quizzes call completed!");
+      
     });
   }
 
@@ -29,9 +29,9 @@ export class MySchoolComponent implements OnInit {
           return e;
       })
     },err=>{
-      console.log("Error");
+      
     },()=>{
-      console.log("Delete call completed!");
+      
     })
   }
 
@@ -40,9 +40,9 @@ export class MySchoolComponent implements OnInit {
     this._mentorGeneralService.viewQuiz(id).subscribe(res=>{
       this.questions = res['questions'];
     },err=>{
-      console.log("Error");
+      
     },()=>{
-      console.log("View Quiz call completed!");
+      
     })
   }
 }

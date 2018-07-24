@@ -7,7 +7,7 @@ import { environment } from "../../../environments/environment";
 @Injectable()
 export class StudentQuizService {
     
-    private BASE_URL: string = `${environment.path}student/quiz`;
+    private BASE_URL: string = `${environment.path}/student/quiz`;
 
     constructor(private _http: HttpClient) { }
     

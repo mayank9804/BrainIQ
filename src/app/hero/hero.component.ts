@@ -36,8 +36,6 @@ export class HeroComponent implements OnInit {
 
   //Hero divison hovering animation
   rolesHovered(event) {
-    console.log("hello " + event.target.className);
-    console.log(this.studentHover + ' ' + this.teacherHovered);
     if (event.target.className.toLocaleLowerCase().includes("teacher")) {
       this.teacherHovered = true;
       this.studentHover = false;

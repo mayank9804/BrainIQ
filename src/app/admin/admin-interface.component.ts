@@ -22,15 +22,12 @@ export class AdminInterfaceComponent {
 
 	public getServerData(event) {
 		this.httpService.getdata(event, this.itemsPerPage,this.role).subscribe((response) => {
-			if (response.error)
-				console.log('No data fetched');
+			if (response.error){}
 			else {
 				this.users = response.users;
 				this.totalItem = response.totalItems;
 			}
-		}, error => {
-			console.log('Server error!');
-		});
+		}, error => {});
 	}
 
 	public setpageLimit(data) {

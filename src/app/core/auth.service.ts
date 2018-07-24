@@ -30,10 +30,10 @@ export class AuthService {
     registerStudent(studentData,cb) {
         return this._http.post<any>(`${this.BASE_URL}/student/register`, studentData).subscribe(res => {
             this.saveToken(res['token']);
-            console.log(res);
+            
             cb();
         }, err => {
-            console.log(err);
+            
         });
     }
 
@@ -42,7 +42,7 @@ export class AuthService {
             this.saveToken(res['token']);
             cb();
         }, err => {
-            console.log(err);
+            
         });
     }
 

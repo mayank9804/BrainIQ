@@ -17,7 +17,7 @@ export class MentorsComponent implements OnInit {
     this.route.data.subscribe(
       data => {
         this.myMentors = data['myMentors'].mentors;
-        // console.log()
+        
         this.browseMentors();
       }
     )
@@ -34,7 +34,7 @@ export class MentorsComponent implements OnInit {
         return true;
       })
     }, err => {
-      console.log(err.status);
+
       this.allMentors = null;
     })
   }
@@ -45,9 +45,9 @@ export class MentorsComponent implements OnInit {
       this.allMentors = this.allMentors.filter(e => e._id != data[0]._id);
       // this.check();
     }, err => {
-      console.log(err);
+
     }, () => {
-      console.log("Completed subscribe mentor call")
+
     })
   }
 
@@ -57,9 +57,9 @@ export class MentorsComponent implements OnInit {
       this.myMentors = this.myMentors.filter(e => e.username != data[0].username);
       this.allMentors.push(data[0]);
     }, err => {
-      console.log(err);
+
     }, () => {
-      console.log("Completed subscribe unsubscribe call")
+
     })
   }
 

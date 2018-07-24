@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit {
         e.createdDate = e.createdDate.split('T')[0];
       })
     }, err => {
-      console.log(err.status);
+      
     }, () => {
-      console.log("Completed Angular call should have either response or err by now!");
+      
     })
   }
 
@@ -38,9 +38,9 @@ export class HomeComponent implements OnInit {
         this.getMyPosts();
       });
     }, err => {
-      console.log(err);
+      
     }, () => {
-      console.log("Completed Like Posts call");
+      
     })
   }
   unlike(data) {
@@ -52,9 +52,9 @@ export class HomeComponent implements OnInit {
         this.getMyPosts();
       });
     }, err => {
-      console.log(err);
+      
     }, () => {
-      console.log("Completed Unlike Posts call");
+      
     })
   }
 }

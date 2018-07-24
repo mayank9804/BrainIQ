@@ -6,9 +6,9 @@ import { environment } from "../../../environments/environment.prod";
 @Injectable()
 export class StudentGeneralService {
 
-    private BASE_URL: string = `${environment.path}student/general`;
+    private BASE_URL: string = `${environment.path}/student/general`;
     
-    private BASE_URL_COMMON: string = `${environment.path}common`;
+    private BASE_URL_COMMON: string = `${environment.path}/common`;
     constructor(private _http: HttpClient) { }
 
 

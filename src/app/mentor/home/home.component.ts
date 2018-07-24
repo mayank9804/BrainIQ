@@ -21,15 +21,15 @@ export class HomeComponent implements OnInit {
   }
   
   postStatus(){
-    console.log("Posting");
+    
     this._mentorGeneralService.postStatus(this.postContent).subscribe(res=>{
-      console.log(res);
+      
       this.myPosts.push(res['post']);
       this.postBox.nativeElement.value = '';
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Completed poststatus call");
+      
     });
   }
 
@@ -40,9 +40,9 @@ export class HomeComponent implements OnInit {
         e.createdDate = e.createdDate.split('T')[0];
       })
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Completed getStatus call");
+      
     });
   }
 
@@ -55,9 +55,9 @@ export class HomeComponent implements OnInit {
         this.getStatus();
       });
     }, err => {
-      console.log(err);
+      
     }, () => {
-      console.log("Completed Like Posts call");
+      
     })
   }
   unlike(data) {
@@ -69,9 +69,9 @@ export class HomeComponent implements OnInit {
         this.getStatus();
       });
     }, err => {
-      console.log(err);
+      
     }, () => {
-      console.log("Completed Unlike Posts call");
+      
     })
   }
 
@@ -79,9 +79,9 @@ export class HomeComponent implements OnInit {
     this._mentorGeneralService.deletePost(post).subscribe(res=>{
       this.myPosts = this.myPosts.filter(e=>e._id!=post._id);
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Deleted call complete!");
+      
     })
   }
   editpost(post){
@@ -89,9 +89,9 @@ export class HomeComponent implements OnInit {
       this._mentorGeneralService.editPost(post).subscribe(res=>{
         this.getStatus();
       },err=>{
-        console.log(err);
+        
       },()=>{
-        console.log("Call completed!");
+        
       })
       post.edit=!post.edit;
     }

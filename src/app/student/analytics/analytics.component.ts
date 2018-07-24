@@ -18,9 +18,9 @@ export class AnalyticsComponent implements OnInit {
     this._studentQuizService.getCompletedQuiz().subscribe(res=>{
       this.completedQuiz = res['completedQuiz'];
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Student Quiz Service call completed");
+      
     })
   }
 
@@ -30,9 +30,9 @@ export class AnalyticsComponent implements OnInit {
     this._studentQuizService.getAnalysedQuestions(id).subscribe(res=>{
       this.questions = res['questions'];
     },err=>{
-      console.log(err);
+      
     },()=>{
-      console.log("Call to analyse my quiz com");
+      
       
     })
   }

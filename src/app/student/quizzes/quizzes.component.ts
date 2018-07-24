@@ -55,15 +55,15 @@ export class QuizzesComponent implements OnInit {
         }
 
       }, err => {
-        console.log(err);
+        
       }, () => {
-        console.log("Attended quizzes call completed!");
+        
       });
 
     }, err => {
-      console.log(err);
+      
     }, () => {
-      console.log("Get quizzes call completed!");
+      
     });
 
 

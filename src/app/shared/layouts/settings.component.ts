@@ -27,16 +27,16 @@ export class SettingsComponent implements OnInit {
       this._studentGeneralService.getMyDetails().subscribe(res=>{
         this.myDetails = res['details'];
       },err=>{
-        console.log(err);
+        
       })
 
     }
     else if(this._authService.whichRole().toLocaleLowerCase() == 'ismentor'){
       this._mentorGeneralService.getMyDetails().subscribe(res=>{
-        console.log(res['details']);
+        
         this.myDetails = res['details'];
       },err=>{
-        console.log(err);
+        
       })
     }
   }
@@ -45,7 +45,7 @@ export class SettingsComponent implements OnInit {
    this._coreService.change(data).subscribe(res=>{
     window.location.reload(true);
    },err=>{
-    console.log("Some error occurred! Please try again later!");
+    
     this.errMessage = "Some error occurred! Please try again later!";
    })
   }
@@ -60,7 +60,7 @@ export class SettingsComponent implements OnInit {
       }
       window.location.reload(true);
      },err=>{
-       console.log(err);
+       
        
         if(err.error.message.toLocaleLowerCase()=='invalid password'){
           this.passwordInvalidMessage = "You entered an incorrect password!";

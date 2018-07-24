@@ -186,17 +186,17 @@ export class SetQuizComponent implements OnInit {
         this.categories = res['categories'];
       }, err => {
         this.categories = [];
-        console.log(err);
+
       }, () => {
-        console.log("Success, Get Categories call");
+
       })
 
       this._mentorGeneralService.getUnpublishedQuiz().subscribe(res => {
         this.unpublishedQuiz = res['unpublishedQuiz'];
       }, err => {
-        console.log("Error");
+
       }, () => {
-        console.log("Call completed qetunpublished quiz!");
+
       })
     }
     else {
@@ -209,9 +209,9 @@ export class SetQuizComponent implements OnInit {
         this.questionIndex = this.questions.length == 0 ? 1 : this.questions.length + 1;
         this.quizName = res['quiz'].name;
       }, err => {
-        console.log("Error occured while recieving quiz details!");
+
       }, () => {
-        console.log("Completed GetQuiz call");
+
       });
 
 
@@ -234,9 +234,9 @@ export class SetQuizComponent implements OnInit {
       localStorage.setItem('quizId', String(res['quizDetails']._id));
 
     }, err => {
-      console.log("Error " + err);
+
     }, () => {
-      console.log("Call to set quiz completed!")
+
     })
   }
   next(question) {
@@ -254,9 +254,9 @@ export class SetQuizComponent implements OnInit {
         this.questionForm.reset();
 
       }, err => {
-        console.log("There was an error adding the question. Please try again later!");
+
       }, () => {
-        console.log("Question either pushed or error!");
+
       })
     }
 
@@ -266,7 +266,7 @@ export class SetQuizComponent implements OnInit {
 
 
       this.quesAnsDetail.answers.forEach(e => {
-        console.log(e._id);
+
         answerId.push(e._id);
       });
       Object.keys(question.value).forEach(e => {
@@ -281,13 +281,13 @@ export class SetQuizComponent implements OnInit {
         answerId: answerId,
         answers: answers
       }
-      console.log(questionToBeUpdated);
+
       this._mentorGeneralService.updateQuestion(questionToBeUpdated).subscribe(res => {
         this.questionIndex = this.questionIndex + 1;
         this.questionForm.reset();
 
         if (this.questionIndex <= this.questions.length) {
-          console.log(this.questions[this.questionIndex - 1]);
+
           this._mentorGeneralService.getQuestionWithAnswers(this.questions[this.questionIndex - 1]).subscribe(resQuestion => {
             // Make sure the format of backend is same as required!
             this.questionForm.setValue(resQuestion['question']);
@@ -297,9 +297,9 @@ export class SetQuizComponent implements OnInit {
         }
 
       }, err => {
-        console.log("Sorry! There was an error updating that question. Please try again later!");
+
       }, () => {
-        console.log("Question either updated or an error occured!");
+
       })
     }
   }
@@ -313,24 +313,24 @@ export class SetQuizComponent implements OnInit {
       localStorage.removeItem('quizId');
       window.location.reload(true);
     }, err => {
-      console.log("Error in cancelling. Please try again later!");
+
     }, () => {
-      console.log("Call to delete quiz completed!");
+
     })
   }
   previous() {
     this.questionIndex -= 1;
-    console.log(this.questions);
+
     this._mentorGeneralService.getQuestionWithAnswers(this.questions[this.questionIndex - 1]).subscribe(res => {
       this.questionForm.reset();
       this.questionForm.setValue(res['question']);
       this.quesAnsDetail = res['additional'];
-      console.log(this.quesAnsDetail);
+
     }, err => {
       this.questionIndex += 1;
-      console.log("Some error occured! while navigating back!");
+
     }, () => {
-      console.log("Call to previous completed!")
+
     })
 
   }
@@ -344,9 +344,9 @@ export class SetQuizComponent implements OnInit {
       this.quizmode = false;
       this._route.navigate(['/mentor/my-school']);
     }, err => {
-      console.log("Error!");
+
     }, () => {
-      console.log("Published!")
+
     })
   }
   save(question) {
@@ -363,17 +363,17 @@ export class SetQuizComponent implements OnInit {
     this._mentorGeneralService.publishQuiz(id).subscribe(res => {
       this._route.navigate(['/mentor/my-school']);
     }, err => {
-      console.log("Error!");
+
     }, () => {
-      console.log("Published!")
+
     })
   }
-  activateIncomplete(quiz){
+  activateIncomplete(quiz) {
     this.questions = quiz.questions;
     this.quizmode = true;
     this.questionIndex = this.questions.length + 1;
     this.quizName = quiz.name;
-    this.quesAnsDetail=[];
+    this.quesAnsDetail = [];
     localStorage.setItem('quizmode', String(true));
     localStorage.setItem('quizId', String(quiz._id));
   }

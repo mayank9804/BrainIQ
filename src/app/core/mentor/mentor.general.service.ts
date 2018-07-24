@@ -6,9 +6,9 @@ import { environment } from "../../../environments/environment";
 @Injectable()
 export class MentorGeneralService {
     
-    private BASE_URL: string = `${environment.path}mentor/general`;
-    private BASE_URL_COMMON: string = `${environment.path}common`;
-    private BASE_URL_QUIZ: string = `${environment.path}mentor/quiz`;
+    private BASE_URL: string = `${environment.path}/mentor/general`;
+    private BASE_URL_COMMON: string = `${environment.path}/common`;
+    private BASE_URL_QUIZ: string = `${environment.path}/mentor/quiz`;
     constructor(private _http: HttpClient) { }
 
     fetchBaseUrl() {
