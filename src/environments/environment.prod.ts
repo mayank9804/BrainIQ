@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  path:'http://localhost:3000/'
+  path:'https://braineesbackend.herokuapp.com/'
 };
