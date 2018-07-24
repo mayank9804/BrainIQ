@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -28,13 +28,10 @@
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "localtunnel": "^1.9.0",
-    "ng2-pagination": "^2.0.2",
     "ngx-bootstrap": "^3.0.1",
     "ngx-pagination": "^3.1.1",
     "path": "^0.12.7",
     "rxjs": "^6.0.0",
-    "surge": "^0.20.1",
     "typescript": "~2.7.2",
     "zone.js": "^0.8.26"
   },
